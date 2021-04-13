@@ -101,10 +101,10 @@ public class Main extends Application {
         refresh.setOnMouseClicked(new EventHandler<Event>() {
             @Override
             public void handle(Event arg0) {
-                for(int i=0; i<10; i++) {
+                for(int i=0; i<3; i++) {
                     PauseTransition pauseTransition = new PauseTransition(Duration.seconds(i));
                     int finalI = i;
-                    pauseTransition.setOnFinished(event -> root.addRow(10, imageView));
+                    pauseTransition.setOnFinished(event -> root.addRow(1, images));
                     pauseTransition.play();
                 }
             }

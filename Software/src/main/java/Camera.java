@@ -28,7 +28,9 @@ public class Camera {
         panel.setDisplayDebugInfo(true);
         panel.setImageSizeDisplayed(true);
         panel.setMirrored(true);
-        JButton b=new JButton("Click Here");
+
+
+        JButton b=new JButton("Click to take picture");
         b.setBounds(50,100,100,70);
         b.addActionListener(new ActionListener(){
             /**
@@ -46,13 +48,38 @@ public class Camera {
                     ImageIO.write(image, "PNG", new File(designation+"-"+dtf.format(now)+".png"));
                     i++;
                     String[] imgName = new String[]{designation + "-" + dtf.format(now) + ".png"};
-                    System.out.print(imgName);
+                    System.out.println(imgName[0].toString());
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
 
             }
         });
+     /*   JButton removePhoto1=new JButton("REMOVE");
+        removePhoto1.setBounds(150,200,100,70);
+        removePhoto1.addActionListener(new ActionListener(){
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             *//*
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                int i = 0;
+                LocalDateTime now = LocalDateTime.now();
+                BufferedImage image = webcam.getImage();
+                // save image to PNG file
+                try {
+                    ImageIO.write(image, "PNG", new File(designation+"-"+dtf.format(now)+".png"));
+                    i++;
+                    String[] imgName = new String[]{designation + "-" + dtf.format(now) + ".png"};
+                    System.out.print(imgName);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
+            }
+        });*/
 
 
         JFrame window = new JFrame("Test webcam panel");
