@@ -1,5 +1,7 @@
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -34,7 +36,11 @@ public class barcodescanner extends JFrame implements Runnable, ThreadFactory {
 
         setLayout(new FlowLayout());
         setTitle("Read Bar");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we){
+                webcam.close();
+            }
+        });
 
         Dimension size = WebcamResolution.QVGA.getSize();
 

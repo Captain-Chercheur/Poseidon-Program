@@ -8,12 +8,17 @@ import javafx.event.ActionEvent;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Camera {
-    public static void Camera() throws InterruptedException, IOException {
+    public static void Camera(String designation) throws InterruptedException, IOException {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
 
         Webcam webcam = Webcam.getDefault();
         webcam.setViewSize(new Dimension(640, 480));
@@ -33,10 +38,11 @@ public class Camera {
              */
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
+                LocalDateTime now = LocalDateTime.now();
                 BufferedImage image = webcam.getImage();
                 // save image to PNG file
                 try {
-                    ImageIO.write(image, "PNG", new File("test.png"));
+                    ImageIO.write(image, "PNG", new File(designation+dtf.format(now)+".png"));
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -50,8 +56,14 @@ public class Camera {
         box.add(panel);
         window.add(box);
         window.setResizable(true);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                webcam.close();
+            }
+        });
+        window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.pack();
         window.setVisible(true);
+
     }
 }

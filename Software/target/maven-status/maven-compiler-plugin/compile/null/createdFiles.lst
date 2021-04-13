@@ -1,6 +1,8 @@
-barcode.class
 Main.class
-Camera$1.class
-Camera.class
+Camera$2.class
 barcodescanner.class
-old.class
+barcode.class
+barcodescanner$1.class
+Camera$1.class
+Main$1.class
+Camera.class
