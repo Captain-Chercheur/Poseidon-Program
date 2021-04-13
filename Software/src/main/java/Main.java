@@ -33,19 +33,28 @@ public class Main extends Application {
         primaryStage.setTitle("Button Experiment 1");
         Webcam webcam = Webcam.getDefault();
         Label label = new Label("Not clicked");
-        Button button = new Button("test");
+        Button openCameraButton = new Button("Take a picture of the product");
+        Button openBarcodescannerButton = new Button("Take a picture of the product");
 
-        button.setOnAction(value ->  {
-            label.setText("Clicked!");
+        openBarcodescannerButton.setOnAction(value ->  {
+
             if (webcam != null) {
                 new barcodescanner();
             } else {
-                System.out.println("No webcam detected");
+                label.setText("No webcam detected");
             }
         });
 
+        openCameraButton.setOnAction(value -> {
+            if (webcam != null) {
+                new barcodescanner();
+            } else {
+                label.setText("No webcam detected");
+            }
 
-        HBox hbox = new HBox(button,label);
+        });
+
+        HBox hbox = new HBox(openBarcodescannerButton,openCameraButton,label);
         barcode.barcode();
 
         Scene scene = new Scene(hbox, 400, 100);
