@@ -50,7 +50,7 @@ public class Main extends Application {
 
 
         HBox hbox = new HBox(button,label);
-
+        barcode.barcode();
 
         Scene scene = new Scene(hbox, 400, 100);
         primaryStage.setScene(scene);
