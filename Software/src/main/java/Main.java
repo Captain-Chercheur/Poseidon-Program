@@ -38,11 +38,7 @@ public class Main extends Application {
         button.setOnAction(value ->  {
             label.setText("Clicked!");
             if (webcam != null) {
-                try {
-                    Camera.Camera();
-                } catch (InterruptedException | IOException e) {
-                    e.printStackTrace();
-                }
+                new barcodescanner();
             } else {
                 System.out.println("No webcam detected");
             }
