@@ -38,14 +38,19 @@ public class Camera {
              */
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
+                int i = 0;
                 LocalDateTime now = LocalDateTime.now();
                 BufferedImage image = webcam.getImage();
                 // save image to PNG file
                 try {
-                    ImageIO.write(image, "PNG", new File(designation+dtf.format(now)+".png"));
+                    ImageIO.write(image, "PNG", new File(designation+"-"+dtf.format(now)+".png"));
+                    i++;
+                    String[] imgName = new String[]{designation + "-" + dtf.format(now) + ".png"};
+                    System.out.print(imgName);
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
+
             }
         });
 

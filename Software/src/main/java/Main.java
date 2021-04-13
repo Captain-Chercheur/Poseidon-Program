@@ -52,8 +52,15 @@ public class Main extends Application {
     private TextField shipText = new TextField();
     private final Label shipNumber = new Label("Numéro de série du bateau (NIC)");
     private TextField shipNumberText = new TextField();
-    private final Image image = new Image(new FileInputStream("test.png"));;
+
+    private final Image image = new Image(new FileInputStream("test.png"));
+    private final Image image1 = new Image(new FileInputStream("test.png"));
+    private final Image image2 = new Image(new FileInputStream("test.png"));
+
     ImageView imageView = new ImageView(image);
+    ImageView imageView1 = new ImageView(image1);
+    ImageView imageView2 = new ImageView(image1);
+
     Button openCameraButton = new Button("Take picture");
     Button openBarcodescannerButton = new Button("Read barcode");
     @Override
@@ -61,8 +68,21 @@ public class Main extends Application {
         primaryStage.setTitle("Poseidon Program");
         Webcam webcam = Webcam.getDefault();
         GridPane root = new GridPane();
-        imageView.setFitHeight(200);
-        imageView.setFitWidth(300);
+
+        Group images = new Group(imageView, imageView1, imageView2);
+        imageView.setFitHeight(150);
+        imageView.setFitWidth(250);
+        imageView1.setFitHeight(150);
+        imageView1.setFitWidth(250);
+        imageView2.setFitHeight(150);
+        imageView2.setFitWidth(250);
+        imageView1.setX(0);
+        imageView1.setY(0);
+        imageView1.setX(250);
+        imageView1.setY(0);
+        imageView2.setX(500);
+        imageView2.setY(0);
+
         root.addRow(0,designation, designationText);
         Button submit = new Button("Submit");
         Button refresh = new Button("Refresh");
@@ -76,7 +96,7 @@ public class Main extends Application {
         root.addRow(6,shipNumber, shipNumberText);
         root.addRow(7, openCameraButton, openBarcodescannerButton);
         root.addRow(8, submit,  refresh);
-        root.addRow(10, imageView);
+        root.addRow(10, images);
 
         refresh.setOnMouseClicked(new EventHandler<Event>() {
             @Override
