@@ -5,7 +5,9 @@ import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamResolution;
 import javafx.event.ActionEvent;
-
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.ActionListener;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -29,15 +31,11 @@ public class Camera {
         panel.setImageSizeDisplayed(true);
         panel.setMirrored(true);
 
+        JFrame window = new JFrame("Test webcam panel");
+        final JButton[] b = {new JButton("Click to take picture")};
+        b[0].setBounds(50,100,100,70);
 
-        JButton b=new JButton("Click to take picture");
-        b.setBounds(50,100,100,70);
-        b.addActionListener(new ActionListener(){
-            /**
-             * Invoked when an action occurs.
-             *
-             * @param e the event to be processed
-             */
+        b[0].addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 int i = 0;
@@ -45,46 +43,23 @@ public class Camera {
                 BufferedImage image = webcam.getImage();
                 // save image to PNG file
                 try {
-                    ImageIO.write(image, "PNG", new File(designation+"-"+dtf.format(now)+".png"));
+                    ImageIO.write(image, "PNG", new File("img_tmp/"+designation+"-"+dtf.format(now)+".png"));
                     i++;
                     String[] imgName = new String[]{designation + "-" + dtf.format(now) + ".png"};
                     System.out.println(imgName[0].toString());
+                    b[0] = (JButton)e.getSource();
+                    window.dispose();
+                    webcam.close();
+                    System.out.println("Frame Closed.");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
-
             }
         });
-     /*   JButton removePhoto1=new JButton("REMOVE");
-        removePhoto1.setBounds(150,200,100,70);
-        removePhoto1.addActionListener(new ActionListener(){
-            /**
-             * Invoked when an action occurs.
-             *
-             * @param e the event to be processed
-             *//*
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-                int i = 0;
-                LocalDateTime now = LocalDateTime.now();
-                BufferedImage image = webcam.getImage();
-                // save image to PNG file
-                try {
-                    ImageIO.write(image, "PNG", new File(designation+"-"+dtf.format(now)+".png"));
-                    i++;
-                    String[] imgName = new String[]{designation + "-" + dtf.format(now) + ".png"};
-                    System.out.print(imgName);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
-
-            }
-        });*/
 
 
-        JFrame window = new JFrame("Test webcam panel");
         Box box = Box.createVerticalBox();
-        box.add(b);
+        box.add(b[0]);
         box.add(panel);
         window.add(box);
         window.setResizable(true);

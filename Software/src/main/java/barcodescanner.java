@@ -3,6 +3,9 @@ import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
@@ -31,7 +34,8 @@ public class barcodescanner extends JFrame implements Runnable, ThreadFactory {
     private WebcamPanel panel = null;
     private JTextArea textarea = null;
 
-    public barcodescanner() {
+
+    public barcodescanner() throws IOException {
         super();
 
         setLayout(new FlowLayout());
@@ -106,4 +110,5 @@ public class barcodescanner extends JFrame implements Runnable, ThreadFactory {
         t.setDaemon(true);
         return t;
     }
+
 }

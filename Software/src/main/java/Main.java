@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -34,7 +35,7 @@ import com.github.sarxos.webcam.Webcam;
 import javafx.util.Duration;
 
 public class Main extends Application {
-    public Main() throws FileNotFoundException {
+    public Main() throws IOException {
     }
 
     public static void main(String[] args) { Application.launch(args);    }
@@ -52,14 +53,17 @@ public class Main extends Application {
     private TextField shipText = new TextField();
     private final Label shipNumber = new Label("Numéro de série du bateau (NIC)");
     private TextField shipNumberText = new TextField();
+    String [] aled = getAllImages(new File("img_tmp/"), false).toArray(new String[0]);
 
-    private final Image image = new Image(new FileInputStream("test.png"));
-    private final Image image1 = new Image(new FileInputStream("test.png"));
-    private final Image image2 = new Image(new FileInputStream("test.png"));
+    private final Image image = new Image(new FileInputStream(aled[0]));
+    private final Image image1 = new Image(new FileInputStream(aled[1]));
+    private final Image image2 = new Image(new FileInputStream(aled[2]));
 
     ImageView imageView = new ImageView(image);
     ImageView imageView1 = new ImageView(image1);
-    ImageView imageView2 = new ImageView(image1);
+    ImageView imageView2 = new ImageView(image2);
+
+
 
     Button openCameraButton = new Button("Take picture");
     Button openBarcodescannerButton = new Button("Read barcode");
@@ -69,7 +73,7 @@ public class Main extends Application {
         Webcam webcam = Webcam.getDefault();
         GridPane root = new GridPane();
 
-        Group images = new Group(imageView, imageView1, imageView2);
+        Group images = new Group(imageView, imageView1,imageView2);
         imageView.setFitHeight(150);
         imageView.setFitWidth(250);
         imageView1.setFitHeight(150);
@@ -87,7 +91,7 @@ public class Main extends Application {
         Button submit = new Button("Submit");
         Button refresh = new Button("Refresh");
         submit.setOnAction(e->System.out.println("You entered: Product name: "+designationText.getText()));
-
+        referenceText.setPromptText("Poulie simple");
         root.addRow(1,reference, referenceText);
         root.addRow(2,state, stateText);
         root.addRow(3, color,colorText);
@@ -116,12 +120,20 @@ public class Main extends Application {
 
         openBarcodescannerButton.setOnAction(value ->  {
             if (webcam != null) {
-                new barcodescanner();
+                try {
+                    new barcodescanner();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else {
                 label.setText("No webcam detected");
             }
         });
         openCameraButton.setOnAction(value -> {
+            while(referenceText.getText() == null || referenceText.getText().trim().isEmpty()) {
+                referenceText.setPromptText("Ce champ ne peut pas être vide");
+                return;
+            }
             if (webcam != null) {
                 try {
                     Camera.Camera(designationText.getText());
@@ -135,5 +147,24 @@ public class Main extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    public static ArrayList<String> getAllImages(File directory, boolean descendIntoSubDirectories) throws IOException {
+        ArrayList<String> resultList = new ArrayList<String>(256);
+        File[] f = directory.listFiles();
+        for (File file : f) {
+            if (file != null && file.getName().toLowerCase().endsWith(".png") && !file.getName().startsWith("tn_")) {
+                resultList.add(file.getPath());
+            }
+            if (descendIntoSubDirectories && file.isDirectory()) {
+                ArrayList<String> tmp = getAllImages(file, true);
+                if (tmp != null) {
+                    resultList.addAll(tmp);
+                }
+            }
+        }
+        if (resultList.size() > 0)
+            return resultList;
+        else
+            return null;
     }
 }
