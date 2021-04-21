@@ -23,15 +23,7 @@ app = FastAPI(title=title,
               description=description,
               version=version,
               openapi_tags=tagsMetaData)
-origins = [
-    "http://localhost.tiangolo.com",
-    "https://localhost.tiangolo.com",
-    "http://localhost",
-    "http://localhost:8000",
-    "https://localhost",
-    "https://localhost:8000",
-    "https://176.31.163.245:8000"
-]
+origins = ['*']
 
 app.add_middleware(
     CORSMiddleware,
