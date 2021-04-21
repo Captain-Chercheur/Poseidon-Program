@@ -31,7 +31,7 @@ def get_metas():
         rows = c.fetchall()
 
         for id, reference, state, color,brand,model,year,NIC,storage,weight,barcode,designation in rows:
-            yield {"id":"id","reference":reference,"state":state, "color":color,"brand":brand,"model":model,"year":year,"NIC":NIC,"storage":storage,"weight":weight,"barcode":barcode,"designation":designation}
+            yield {"id":id,"reference":reference,"state":state, "color":color,"brand":brand,"model":model,"year":year,"NIC":NIC,"storage":storage,"weight":weight,"barcode":barcode,"designation":designation}
 
 
 def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference, nic):
