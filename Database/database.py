@@ -50,7 +50,7 @@ def get_id():
         rows = c.fetchall()
 
         for id in rows:
-            yield {"id": id}
+            yield {id}
 
 
 def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference, nic):
