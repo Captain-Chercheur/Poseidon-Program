@@ -1,8 +1,11 @@
 import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
+import javafx.scene.image.Image;
+
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +14,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -31,34 +35,30 @@ public class Camera {
         panel.setImageSizeDisplayed(true);
         panel.setMirrored(true);
 
-        JFrame window = new JFrame("Test webcam panel");
+        JFrame window = new JFrame("Take your picture");
         final JButton[] b = {new JButton("Click to take picture")};
         b[0].setBounds(50,100,100,70);
         LocalDateTime now = LocalDateTime.now();
-        BufferedImage image = webcam.getImage();
+
         imgName = new String[] {designation + "-" + dtf.format(now) + ".png"};
-        ImageIO.write(image, "PNG", new File("img_tmp/" + designation + "-" + dtf.format(now) + ".png"));
 
-        b[0].addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        b[0].addActionListener(e -> {
 
-                // save image to PNG file
-                    try {
-                        ImageIO.write(image, "PNG", new File("img_tmp/" + designation + "-" + dtf.format(now) + ".png"));
+            // save image to PNG file
+                try {
+                    BufferedImage image = webcam.getImage();
+                    ImageIO.write(image, "PNG", new File("img_tmp/" + designation + "-" + dtf.format(now) + ".png"));
+                    window.dispose();
+                    webcam.close();
+                    System.out.println("Frame Closed.");
+                    Main.SetImages(imgName[0], Main.cpt);
+                    b[0] = (JButton) e.getSource();
 
-                        b[0] = (JButton) e.getSource();
-                        window.dispose();
-                        webcam.close();
-                        System.out.println("Frame Closed.");
-
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
-                    }
-
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
                 }
 
-        });
+            });
 
 
         Box box = Box.createVerticalBox();
@@ -75,6 +75,6 @@ public class Camera {
         window.pack();
         window.setVisible(true);
 
-        return imgName[0].toString();
+        return imgName[0];
     }
 }

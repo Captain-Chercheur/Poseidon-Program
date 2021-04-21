@@ -1,6 +1,6 @@
 Main.class
-Camera$2.class
-Main$2.class
+imageProcess.class
+BarcodePrinter.class
 barcodescanner.class
 barcode.class
 barcodescanner$1.class

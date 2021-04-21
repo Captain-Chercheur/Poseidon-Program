@@ -9,6 +9,9 @@ import javafx.fxml.*;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -18,15 +21,21 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.TimerTask;
 
 import com.github.sarxos.webcam.Webcam;
 import javafx.util.Duration;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 
 public class Main extends Application {
     public Main() throws IOException {
@@ -35,6 +44,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) { Application.launch(args); }
+
     public final Label designation = new Label("Désignation de la pièce");
     private TextField designationText = new TextField();
     private final Label reference = new Label("Référence du produit");
@@ -45,22 +55,55 @@ public class Main extends Application {
     private TextField colorText = new TextField();
     private final Label brand = new Label("Marque de la pièce");
     private TextField brandText = new TextField();
-    private final Label ship = new Label("Provenance de la pièce (Marque - Modèle - Année)");
-    private TextField shipText = new TextField();
+    private final Label shipBrand = new Label("Marque du bateau de provenance");
+    private TextField shipBrandText = new TextField();
+    private final Label shipModel = new Label("Model du bateau de provenance");
+    private TextField shipModelText = new TextField();
+    private final Label shipYear = new Label("Année du bateau de provenance");
+    private TextField shipYearText = new TextField();
     private final Label shipNumber = new Label("Numéro de série du bateau (NIC)");
     private TextField shipNumberText = new TextField();
+    private final Label weight = new Label("Poids de la pièce");
+    private TextField weightText = new TextField();
+    private final Label stockPlacement = new Label("Emplacement de stockage de la pièce");
+    private TextField stockPlacementText = new TextField();
 
+    static Image image;
 
-    Image image = new Image(new FileInputStream("test.png"));
-    Image image1 = new Image(new FileInputStream("no-image.png"));
-    Image image2 = new Image(new FileInputStream("no-image.png"));
+    static {
+        try {
+            image = new Image(new FileInputStream("no-image.png"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static Image image1;
+
+    static {
+        try {
+            image1 = new Image(new FileInputStream("no-image.png"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static Image image2;
+
+    static {
+        try {
+            image2 = new Image(new FileInputStream("no-image.png"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     Image crossImage = new Image(new FileInputStream("img_static/red-cross.png"));
 
 
-    private ImageView imageView = new ImageView(image);
-    private ImageView imageView1 = new ImageView(image1);
-    private ImageView imageView2 = new ImageView(image2);
+    private static ImageView imageView = new ImageView(image);
+    private static ImageView imageView1 = new ImageView(image1);
+    private static ImageView imageView2 = new ImageView(image2);
 
     private ImageView crossImageView = new ImageView(crossImage);
     private ImageView crossImageView1 = new ImageView(crossImage);
@@ -72,24 +115,31 @@ public class Main extends Application {
     Hyperlink removeImage1 = new Hyperlink();
     Hyperlink removeImage2 = new Hyperlink();
 
+    static boolean picture = false;
+    static boolean picture1 = false;
+    static boolean picture2 = false;
+    static int cpt = 0;
+
+    public static void SetImages(String imgName, int number) throws FileNotFoundException {
+        cpt++;
+        System.out.print(imgName);
+        if (!picture) {
+            imageView.setImage(new Image(new FileInputStream("img_tmp/" + imgName)));
+            picture = true;
+        } else if (!picture1) {
+            imageView1.setImage(new Image(new FileInputStream("img_tmp/" + imgName)));
+            picture1 = true;
+        } else if (!picture2) {
+            imageView2.setImage(new Image(new FileInputStream("img_tmp/" + imgName)));
+            picture2 = true;
+        }
+        if (cpt == 3){
+            cpt = 0;
+        }
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Timeline fiveSecondsWonder = new Timeline(
-                new KeyFrame(Duration.seconds(10),
-                        new EventHandler<ActionEvent>() {
-
-                            @Override
-                            public void handle(ActionEvent event) {
-                                try {
-                                    imageView.setImage(new Image(new FileInputStream("no-image.png")));
-                                } catch (FileNotFoundException e) {
-                                    e.printStackTrace();
-                                };
-                            }
-                        }));
-        fiveSecondsWonder.setCycleCount(Timeline.INDEFINITE);
-        fiveSecondsWonder.play();
 
         primaryStage.setTitle("Poseidon Program");
         Webcam webcam = Webcam.getDefault();
@@ -109,9 +159,9 @@ public class Main extends Application {
         imageView1.setX(0);
         imageView1.setY(200);
         imageView1.setX(250);
-        imageView1.setY(20);
+        imageView1.setY(0);
         imageView2.setX(500);
-        imageView2.setY(20);
+        imageView2.setY(0);
 
         removeImage.setLayoutX(0);
         removeImage1.setLayoutX(250);
@@ -120,17 +170,62 @@ public class Main extends Application {
         root.addRow(0, designation, designationText);
         Button submit = new Button("Submit");
         Button refresh = new Button("Refresh");
-        submit.setOnAction(e -> System.out.println("You entered: Product name: " + designationText.getText()));
-        referenceText.setPromptText("Poulie simple");
+        submit.setOnAction(value -> {
+            while(designationText.getText() == null || designationText.getText().trim().isEmpty() || stateText.getText() == null || stateText.getText().trim().isEmpty() || colorText.getText() == null || colorText.getText().trim().isEmpty() || shipBrandText.getText() == null || shipBrandText.getText().trim().isEmpty() ||
+                    shipModelText.getText() == null || shipYearText.getText() == null || shipYearText.getText().trim().isEmpty() || weightText.getText() == null || weightText.getText().trim().isEmpty() ||
+                    stockPlacementText.getText() ==  null || stockPlacement.getText().trim().isEmpty() || !(picture && picture1 && picture2) ){
+                designationText.setPromptText("Ce champ ne peut pas être vide");
+                stateText.setPromptText("Ce champ ne peut pas être vide");
+                colorText.setPromptText("Ce champ ne peut pas être vide");
+                shipBrandText.setPromptText("Ce champ ne peut pas être vide");
+                shipModelText.setPromptText("Ce champ ne peut pas être vide");
+                shipYearText.setPromptText("Ce champ ne peut pas être vide");
+                weightText.setPromptText("Ce champ ne peut pas être vide");
+                stockPlacementText.setPromptText("Ce champ ne peut pas être vide");
+
+                return;
+            }
+                    try {
+                        String barcodeFileName = barcode.barcode(designationText.getText().toUpperCase(Locale.ROOT).charAt(0), stockPlacementText.getText());
+                        System.out.println("Creating barcode...");
+                        imageProcess.imageProcess(designationText.getText(), stateText.getText(), shipBrandText.getText(), shipModelText.getText(), shipYearText.getText(), colorText.getText(), weightText.getText(), stockPlacementText.getText(), barcodeFileName);
+                        System.out.println("Processing image...");
+                        BarcodePrinter.BarcodePrinter(barcodeFileName);
+                        System.out.println("Printing image...");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+        );
+        designationText.setPromptText("Poulie simple");
+        referenceText.setPromptText("66978");
+        stateText.setPromptText("Neuf");
+        colorText.setPromptText("Noir");
+        brandText.setPromptText("HOLT");
+        shipBrandText.setPromptText("Sealine");
+        shipModelText.setPromptText("F42/5");
+        shipYearText.setPromptText("2010");
+        shipBrandText.setPromptText("Sealine");
+        shipNumberText.setPromptText("ABC 67436 B6 06");
+        weightText.setPromptText("2 kg");
+        stockPlacementText.setPromptText("4F");
+
+
         root.addRow(1, reference, referenceText);
         root.addRow(2, state, stateText);
         root.addRow(3, color, colorText);
         root.addRow(4, brand, brandText);
-        root.addRow(5, ship, shipText);
-        root.addRow(6, shipNumber, shipNumberText);
-        root.addRow(7, openCameraButton, openBarcodeScannerButton);
-        root.addRow(10, images);
-        //root.addRow(9, removeImage, removeImage1, removeImage2);
+        root.addRow(5, shipBrand, shipBrandText);
+        root.addRow(6, shipModel, shipModelText);
+        root.addRow(7, shipYear, shipYearText);
+        root.addRow(8, shipNumber, shipNumberText);
+        root.addRow(9, stockPlacement, stockPlacementText);
+        root.addRow(10, weight, weightText);
+        root.addRow(11, openCameraButton, openBarcodeScannerButton);
+        root.addRow(12, submit);
+        root.addRow(13, images);
 
 
 
@@ -150,15 +245,26 @@ public class Main extends Application {
         removeImage.setOnAction(value -> {
             try {
                 imageView.setImage(new Image (new FileInputStream("no-image.png")));
+                picture = false;
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         });
         removeImage1.setOnAction(value -> {
-            imageView1.setImage(new Image("no-image.png"));
+            try {
+                imageView1.setImage(new Image (new FileInputStream("no-image.png")));
+                picture1 = false;
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         });
         removeImage2.setOnAction(value -> {
-            imageView2.setImage(new Image("no-image.png"));
+            try {
+                imageView2.setImage(new Image (new FileInputStream("no-image.png")));
+                picture2 = false;
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         });
 
         openBarcodeScannerButton.setOnAction(value -> {
@@ -173,16 +279,17 @@ public class Main extends Application {
             }
         });
         openCameraButton.setOnAction(value -> {
-            while (referenceText.getText() == null || referenceText.getText().trim().isEmpty()) {
-                referenceText.setPromptText("Ce champ ne peut pas être vide");
+            while ((designationText.getText() == null || designationText.getText().trim().isEmpty())) {
+                designationText.setPromptText("Ce champ ne peut pas être vide");
                 return;
             }
             if (webcam != null) {
                 int i = 0;
                 try {
                     String omg = Camera.Camera(designationText.getText());
+
                     System.out.println(omg);
-                    imageView.setImage(new Image("img_tmp/"+omg));
+                   //imageView.setImage(new Image(new FileInputStream("img_tmp/"+omg)));
                     if (getAllImages(new File("img_tmp/"), false) == null) {
                         System.out.println("no images");
                     } else {
@@ -196,7 +303,7 @@ public class Main extends Application {
                         imageView1 = new ImageView(image1);
                         imageView2 = new ImageView(image2);*/
                     }
-                } catch (InterruptedException | IOException e) {
+                } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
                 }
             } else {
@@ -204,6 +311,8 @@ public class Main extends Application {
             }
         });
 
+
+        primaryStage.getIcons().add(new Image("file:img_static/captainchercheur.png"));
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -226,4 +335,6 @@ public class Main extends Application {
         else
             return null;
     }
+
+
 }

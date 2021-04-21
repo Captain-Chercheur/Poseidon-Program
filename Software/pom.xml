@@ -48,6 +48,11 @@
             <artifactId>javafx-fxml</artifactId>
             <version>11.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.openpnp</groupId>
+            <artifactId>opencv</artifactId>
+            <version>[4.3.0,)</version>
+        </dependency>
     </dependencies>
 
     <build>

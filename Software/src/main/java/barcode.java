@@ -8,7 +8,8 @@ import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
 import org.krysalis.barcode4j.tools.UnitConv;
 
 public class barcode {
-    public static void barcode() throws Exception {
+    public static String file_name;
+    public static String barcode(char designation, String Placement) throws Exception {
         try {
             //Create the barcode bean
             Code39Bean bean = new Code39Bean();
@@ -16,13 +17,13 @@ public class barcode {
             final int dpi = 150;
 
             //Configure the barcode generator
-            bean.setModuleWidth(UnitConv.in2mm(1.0f / dpi)); //makes the narrow bar
+            bean.setModuleWidth(UnitConv.in2mm(2f / dpi)); //makes the narrow bar
             //width exactly one pixel
             bean.setWideFactor(3);
             bean.doQuietZone(false);
-
+            file_name = designation + "-" + "01" + "-" + Placement;
             //Open output file
-            File outputFile = new File("out.jpg");
+            File outputFile = new File("barcodes/" + file_name);
             OutputStream out = new FileOutputStream(outputFile);
             try {
                 //Set up the canvas provider for monochrome JPEG output
@@ -30,8 +31,9 @@ public class barcode {
                         out, "image/jpeg", dpi, BufferedImage.TYPE_BYTE_BINARY, false, 0);
 
                 //Generate the barcode
-                bean.generateBarcode(canvas, "123456");
 
+                bean.generateBarcode(canvas, file_name);
+                
                 //Signal end of generation
                 canvas.finish();
             } finally {
@@ -40,6 +42,7 @@ public class barcode {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        return "barcodes/" + file_name;
     }
+
 }
