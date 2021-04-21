@@ -1,50 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Database.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-01-4F" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-01-4F-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-01-5K" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-01-5K-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-01-6F" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-01-6F-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-01-6f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-01-6f-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-01-9G" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-01-9G-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:33:37.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:33:38.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:33:39.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:36:57.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:36:58.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:37:00.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:37:48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:37:50.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:37:53.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:37:58.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:49:00.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:49:01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:49:03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:50:51.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:50:52.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:50:54.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:51:48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:51:49.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:51:51.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/src/main/java/HTMLrequests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/barcode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/barcode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
+    <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Database creation and py program to access it via web">
+      <change afterPath="$PROJECT_DIR$/database" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +57,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1618991704313</updated>
-      <workItem from="1618991705967" duration="8157000" />
+      <workItem from="1618991705967" duration="8491000" />
     </task>
+    <task id="LOCAL-00001" summary="Database creation and py program to access it via web">
+      <created>1619000443889</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619000443889</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,5 +82,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Database creation and py program to access it via web" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database creation and py program to access it via web" />
   </component>
 </project>
