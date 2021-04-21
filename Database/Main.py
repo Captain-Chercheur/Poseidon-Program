@@ -38,7 +38,7 @@ async def main():
     return {"message": "Hello World"}
 
 @app.get("/get_metas/")
-def get_metas():
+async def get_metas():
     '''**Patient**
     Create new patient
     Exemple :
@@ -48,6 +48,8 @@ def get_metas():
     room -> Room where the patient will stay for the week
     state -> 0=sick, 1->dead, 2->cured
 '''
+
+
     return database.get_metas()
 
 
