@@ -12,6 +12,7 @@ import java.util.concurrent.ThreadFactory;
 
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+import javax.xml.transform.Result;
 
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
@@ -99,6 +100,7 @@ public class barcodescanner extends JFrame implements Runnable, ThreadFactory {
 
             if (result != null) {
                 textarea.setText(result.getText());
+                textarea.setText(HTMLrequests.HTMLrequests("get_product/"+result.getText()));
             }
 
         } while (true);

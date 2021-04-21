@@ -50,8 +50,8 @@ async def get_metas():
 '''
     return database.get_metas()
 
-@app.get("/get_id/")
-async def get_id():
+@app.get("/get_product/")
+async def get_product(product: str):
     '''**Patient**
     Create new patient
     Exemple :
@@ -61,7 +61,7 @@ async def get_id():
     room -> Room where the patient will stay for the week
     state -> 0=sick, 1->dead, 2->cured
 '''
-    return database.get_id()
+    return database.get_product(product)
 
 
 @app.get("/put_metas/{designation}/{state}/{color}/{brand}/{model}/{year}/{storage}/{weight}/{barcode}/{reference}/{nic}")

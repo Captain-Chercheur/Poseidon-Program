@@ -21,7 +21,13 @@ public class barcode {
             //width exactly one pixel
             bean.setWideFactor(3);
             bean.doQuietZone(false);
-            file_name = designation + "-" + HTMLrequests.HTMLrequests("id") + "-" + Placement;
+            String id = HTMLrequests.HTMLrequests("get_id").toString().replaceAll("(^\\[|\\]$)", "");
+            id= id.toString().replaceAll("(^\\[|\\]$)", "");
+            id = id.toString().replaceAll("(^\\[|\\]$)", "");
+            int id_int = Integer.parseInt(id);
+            id_int = id_int+1;
+            System.out.println(id_int);
+            file_name = designation + "-" + id_int + "-" + Placement;
             //Open output file
             File outputFile = new File("barcodes/" + file_name);
             OutputStream out = new FileOutputStream(outputFile);
