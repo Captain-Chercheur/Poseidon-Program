@@ -23,6 +23,9 @@ app = FastAPI(title=title,
               version=version,
               openapi_tags=tagsMetaData)
 
+@app.get("/")
+async def main():
+    return {"message": "Hello World"}
 
 @app.get("/get_metas/")
 def get_metas():
