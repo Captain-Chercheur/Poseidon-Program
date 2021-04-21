@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Trying to install the serveur to wordpress">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/HTMLrequests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/HTMLrequests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/barcode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/barcode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1618991704313</updated>
-      <workItem from="1618991705967" duration="13865000" />
+      <workItem from="1618991705967" duration="14654000" />
     </task>
     <task id="LOCAL-00001" summary="Database creation and py program to access it via web">
       <created>1619000443889</created>
@@ -108,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619015025407</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Trying to install the serveur to wordpress">
+      <created>1619015072520</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619015072520</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

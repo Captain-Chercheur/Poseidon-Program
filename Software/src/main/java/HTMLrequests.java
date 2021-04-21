@@ -6,8 +6,8 @@ import java.net.ProtocolException;
 import java.net.URL;
 
 /**
- * @author : Paul Vivancos / Guillaume Blot
- * @date : 07/04/2021
+ * @author : Briez-Bañuls Valentin
+ * @date : 21/04/2021
  * @brief : La classe Request ne sert qu'a une chose, effectuer une requète, que ce soit POST ou GET.
  * Il nous suffit de lui passer en paramètre de quoi compléter la requete URI et c'est bon.
  * Nous l'avons crée pour éviter de faire un copié / collé des instruction de la requète dans chaque méthode qui
@@ -19,7 +19,7 @@ public class HTMLrequests {
          * Pour commencer, nous initialisation les quelques variables qui nous seront utiles. On concatène l'adresse
          * du web services ainsi que la requete pour former la requete uri.
          */
-        String url = "http://127.0.0.1:8000/"+args;
+        String url = "http://176.31.163.242:8000/"+args;
         int responseCode = 0;
         String responseString = null;
         String line = null;

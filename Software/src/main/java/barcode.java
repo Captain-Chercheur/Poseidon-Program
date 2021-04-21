@@ -21,7 +21,7 @@ public class barcode {
             //width exactly one pixel
             bean.setWideFactor(3);
             bean.doQuietZone(false);
-            file_name = designation + "-" + "01" + "-" + Placement;
+            file_name = designation + "-" + HTMLrequests.HTMLrequests("id") + "-" + Placement;
             //Open output file
             File outputFile = new File("barcodes/" + file_name);
             OutputStream out = new FileOutputStream(outputFile);
