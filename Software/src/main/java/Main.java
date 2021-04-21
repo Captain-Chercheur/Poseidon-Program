@@ -186,12 +186,18 @@ public class Main extends Application {
                 return;
             }
                     try {
-                        String barcodeFileName = barcode.barcode(designationText.getText().toUpperCase(Locale.ROOT).charAt(0), stockPlacementText.getText());
+
+
+                        String barcodeName = barcode.barcode(designationText.getText().toUpperCase(Locale.ROOT).charAt(0), stockPlacementText.getText());
+                        String barcodeFileName = "barcodes/" + barcodeName;
                         System.out.println("Creating barcode...");
                         imageProcess.imageProcess(designationText.getText(), stateText.getText(), shipBrandText.getText(), shipModelText.getText(), shipYearText.getText(), colorText.getText(), weightText.getText(), stockPlacementText.getText(), barcodeFileName);
                         System.out.println("Processing image...");
                         BarcodePrinter.BarcodePrinter(barcodeFileName);
                         System.out.println("Printing image...");
+                        String metas = "put_metas/" + designationText.getText() + "/" + stateText.getText() + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
+                                shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/%20/%20";
+                        HTMLrequests.HTMLrequests(metas);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

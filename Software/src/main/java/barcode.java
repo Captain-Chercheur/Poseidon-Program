@@ -42,7 +42,7 @@ public class barcode {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "barcodes/" + file_name;
+        return file_name;
     }
 
 }
