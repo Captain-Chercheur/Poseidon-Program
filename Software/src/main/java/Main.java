@@ -199,7 +199,7 @@ public class Main extends Application {
                         BarcodePrinter.BarcodePrinter(barcodeFileName);
                         System.out.println("Printing image...");
                         String metas = "put_metas/" + designationText.getText() + "/" + stateText.getText() + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
-                                shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/%20/%20";
+                                shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/" +DescriptionStateText.getText() + "/%20/%20";
                         HTMLrequests.HTMLrequests(metas);
                     } catch (Exception e) {
                         e.printStackTrace();

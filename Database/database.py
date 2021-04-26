@@ -30,10 +30,10 @@ def get_metas():
 
         rows = c.fetchall()
 
-        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation in rows:
+        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionState in rows:
             yield {"id": id, "reference": reference, "state": state, "color": color, "brand": brand, "model": model,
                    "year": year, "NIC": NIC, "storage": storage, "weight": weight, "barcode": barcode,
-                   "designation": designation}
+                   "designation": designation, "descriptionState":descriptionState}
 
 
 def get_product(barcode):
