@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Database">
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-18-1A" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-18-1A-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:05:27.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:05:29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-11:05:31.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +53,7 @@
       <workItem from="1619424853493" duration="82000" />
       <workItem from="1619425144758" duration="538000" />
       <workItem from="1619425804759" duration="2132000" />
-      <workItem from="1619428012052" duration="115000" />
+      <workItem from="1619428012052" duration="155000" />
     </task>
     <task id="LOCAL-00001" summary="Database creation and py program to access it via web">
       <created>1619000443889</created>
@@ -202,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619427577120</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Database">
+      <created>1619428132485</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1619428132485</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
