@@ -33,7 +33,7 @@ def get_metas():
         for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText in rows:
             yield {"id": id, "reference": reference, "state": state, "color": color, "brand": brand, "model": model,
                    "year": year, "NIC": NIC, "storage": storage, "weight": weight, "barcode": barcode,
-                   "designation": designation, "descriptionText":descriptionText}
+                   "designation": designation, "descriptionText": descriptionText}
 
 
 def get_product(barcode):
@@ -115,3 +115,72 @@ def put_metas(designation, state, color, brand, model, year, storage, weight, ba
         for Products in rows:
             print(designation, state, color, brand, model, year, storage, weight, barcode, descriptionText)
             yield designation, state, color, brand, model, year, storage, weight, barcode, descriptionText
+
+
+def new_shelf(barcode, storage, designation, quantity):
+    ''' return (yield) the forecasts found in the database
+    . if filter is provided, yield only those forecasts from the provided user
+    . sort is provided to sort the selected forecasts
+    '''
+    with connectBase() as coon:
+        c = coon.cursor()
+
+        c.execute(f'''INSERT INTO Shelf (barcode, storage, designation, quantity) 
+                  VALUES ('{barcode}', '{storage}', '{designation}', '{quantity}'); ''')
+
+        rows = c.fetchall()
+
+        for Products in rows:
+            print(barcode, storage, designation, quantity)
+            yield barcode, storage, designation, quantity
+
+
+def get_shelf_id():
+    ''' return (yield) the forecasts found in the database
+    . if filter is provided, yield only those forecasts from the provided user
+    . sort is provided to sort the selected forecasts
+    '''
+    with connectBase() as coon:
+        c = coon.cursor()
+        c.execute(f'''
+            SELECT MAX(id) FROM Shelf;
+        ''')
+
+        rows = c.fetchall()
+
+        for id in rows:
+            yield {id}
+
+
+def get_shelf_quantity(shelf):
+    ''' return (yield) the forecasts found in the database
+    . if filter is provided, yield only those forecasts from the provided user
+    . sort is provided to sort the selected forecasts
+    '''
+    with connectBase() as coon:
+        c = coon.cursor()
+        c.execute(f'''
+            SELECT Quantity FROM Shelf WHERE Storage = '{shelf}';
+        ''')
+
+        rows = c.fetchall()
+
+        for quantity in rows:
+            yield {quantity}
+
+
+def change_shelf_quantity(shelf, quantity):
+    ''' return (yield) the forecasts found in the database
+    . if filter is provided, yield only those forecasts from the provided user
+    . sort is provided to sort the selected forecasts
+    '''
+    with connectBase() as coon:
+        c = coon.cursor()
+        c.execute(f'''
+            UPDATE Shelf SET Quantity = '{quantity}' WHERE Storage = '{shelf}';
+        ''')
+
+        rows = c.fetchall()
+
+        for quantity, shelf in rows:
+            yield {quantity, shelf}

@@ -33,9 +33,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.get("/")
 async def main():
     return {"message": "Hello World"}
+
 
 @app.get("/get_metas/")
 async def get_metas():
@@ -49,6 +51,7 @@ async def get_metas():
     state -> 0=sick, 1->dead, 2->cured
 '''
     return database.get_metas()
+
 
 @app.get("/get_product/{product}")
 async def get_product(product: str):
@@ -65,8 +68,10 @@ async def get_product(product: str):
     return database.get_product(product)
 
 
-@app.get("/put_metas/{designation}/{state}/{color}/{brand}/{model}/{year}/{storage}/{weight}/{barcode}/{descriptionText}/{reference}/{nic}")
-def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, descriptionText, reference: Optional[str], nic: Optional[str]):
+@app.get(
+    "/put_metas/{designation}/{state}/{color}/{brand}/{model}/{year}/{storage}/{weight}/{barcode}/{descriptionText}/{reference}/{nic}")
+def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, descriptionText,
+              reference: Optional[str], nic: Optional[str]):
     '''**Patient**
     Create new patient
     Exemple :
@@ -76,7 +81,10 @@ def put_metas(designation, state, color, brand, model, year, storage, weight, ba
     room -> Room where the patient will stay for the week
     state -> 0=sick, 1->dead, 2->cured
 '''
-    return database.put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference,descriptionText ,nic)
+    return database.put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference,
+                              descriptionText, nic)
+
+
 @app.get("/get_id/")
 async def get_id():
     '''**Patient**
@@ -103,6 +111,63 @@ async def get_storage(storage):
     state -> 0=sick, 1->dead, 2->cured
 '''
     return database.get_storage(storage)
+
+
+@app.get("/new_shelf/{barcode}/{storage}/{designation}/{quantity}")
+def new_shelf(barcode, storage, designation, quantity):
+    '''**Patient**
+    Create new patient
+    Exemple :
+    /Patients/?id=1587852?room=1?state=0?madicine=Moderna
+
+    id -> Social Security numberdd
+    room -> Room where the patient will stay for the week
+    state -> 0=sick, 1->dead, 2->cured
+'''
+    return database.new_shelf(barcode, storage, designation, quantity)
+
+
+@app.get("/get_shelf_id/")
+async def get_id():
+    '''**Patient**
+    Create new patient
+    Exemple :
+    /Patients/?id=1587852?room=1?state=0?madicine=Moderna
+
+    id -> Social Security number
+    room -> Room where the patient will stay for the week
+    state -> 0=sick, 1->dead, 2->cured
+'''
+    return database.get_shelf_id()
+
+
+
+@app.get("/get_shelf_quantity/{shelf}")
+async def get_shelf_quantity(shelf):
+    '''**Patient**
+    Create new patient
+    Exemple :
+    /Patients/?id=1587852?room=1?state=0?madicine=Moderna
+
+    id -> Social Security number
+    room -> Room where the patient will stay for the week
+    state -> 0=sick, 1->dead, 2->cured
+'''
+    return database.get_shelf_quantity(shelf)
+
+
+@app.get("/change_shelf_quantity/{shelf}/{quantity}")
+async def change_shelf_quantity(shelf, quantity):
+    '''**Patient**
+    Create new patient
+    Exemple :
+    /Patients/?id=1587852?room=1?state=0?madicine=Moderna
+
+    id -> Social Security number
+    room -> Room where the patient will stay for the week
+    state -> 0=sick, 1->dead, 2->cured
+'''
+    return database.change_shelf_quantity(shelf, quantity)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8080, log_level="info")
