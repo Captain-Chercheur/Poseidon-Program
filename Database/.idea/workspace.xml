@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Database">
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Embase de chandelier-10:09:03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Embase de chandelier-10:09:10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Embase de chandelier-10:09:16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Embase-10:13:06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-10:13:44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-10:13:46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-10:13:47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/src/main/java/shelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/barcodescanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/barcodescanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Camera$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Camera$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Camera.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +61,8 @@
       <workItem from="1618991705967" duration="14688000" />
       <workItem from="1619016397908" duration="22000" />
       <workItem from="1619017481828" duration="743000" />
-      <workItem from="1619419922758" duration="782000" />
+      <workItem from="1619419922758" duration="1231000" />
+      <workItem from="1619424853493" duration="53000" />
     </task>
     <task id="LOCAL-00001" summary="Database creation and py program to access it via web">
       <created>1619000443889</created>
@@ -132,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619420485191</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Database">
+      <created>1619420738857</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1619420738858</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

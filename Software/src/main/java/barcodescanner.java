@@ -4,6 +4,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.Executor;
@@ -98,8 +99,12 @@ public class barcodescanner extends JFrame implements Runnable, ThreadFactory {
             }
 
             if (result != null) {
-                textarea.setText(result.getText());
-                textarea.setText(HTMLrequests.HTMLrequests("get_product/"+result.getText()));
+                String detailsList = HTMLrequests.HTMLrequests("get_product/"+result.getText());
+                String details = detailsList.replaceAll("(\"\\^\\[|\\{\\\\}\\\\]\\$\")", "");
+                String[] aled = details.split(",");
+                for (int i = 0; aled.length > i; i++) {
+                    textarea.append("\n" + aled[i]);
+                }
             }
 
         } while (true);
