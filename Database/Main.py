@@ -52,6 +52,7 @@ async def get_metas():
 
 @app.get("/get_product/")
 async def get_product(product: str):
+    print(product)
     '''**Patient**
     Create new patient
     Exemple :
