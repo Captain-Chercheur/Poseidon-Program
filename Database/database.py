@@ -44,7 +44,7 @@ def get_product(barcode):
     with connectBase() as coon:
         c = coon.cursor()
         c.execute(f'''
-            SELECT * FROM Products where barcode='{barcode}';
+            SELECT * FROM Products WHERE BARCODE='{barcode}';
 
         ''')
 

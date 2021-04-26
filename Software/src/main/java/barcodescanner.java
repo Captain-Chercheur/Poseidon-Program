@@ -12,7 +12,6 @@ import java.util.concurrent.ThreadFactory;
 
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
-import javax.xml.transform.Result;
 
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;

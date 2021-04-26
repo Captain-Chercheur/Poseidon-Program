@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Trying to install the serveur to wordpress">
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/Z-18-zad" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/Z-18-zad-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie Simple-16:42:53.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie Simple-16:42:58.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie Simple-16:47:35.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie Simple-16:47:37.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie Simple-16:47:39.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-16:49:46.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-16:49:48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-16:49:49.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-16:50:45.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-16:50:46.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-16:50:48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dz-16:53:01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dz-16:53:03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dz-16:53:04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/zda-16:55:32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/zda-16:55:33.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/zda-16:55:34.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/barcode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/barcode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/barcodescanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/barcodescanner.java" afterDir="false" />
-    </list>
+    <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Trying to install the serveur to wordpress" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +43,7 @@
       <updated>1618991704313</updated>
       <workItem from="1618991705967" duration="14688000" />
       <workItem from="1619016397908" duration="22000" />
-      <workItem from="1619017481828" duration="363000" />
+      <workItem from="1619017481828" duration="743000" />
     </task>
     <task id="LOCAL-00001" summary="Database creation and py program to access it via web">
       <created>1619000443889</created>
@@ -133,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619015863243</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Trying to install the serveur to wordpress">
+      <created>1619018043871</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619018043871</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

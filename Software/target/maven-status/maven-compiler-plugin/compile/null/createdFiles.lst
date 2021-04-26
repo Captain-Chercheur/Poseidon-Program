@@ -1,10 +1,4 @@
-Main.class
-imageProcess.class
-HTMLrequests.class
-BarcodePrinter.class
-barcodescanner.class
 barcode.class
-barcodescanner$1.class
-Camera$1.class
+Main.class
 Main$1.class
-Camera.class
+BarcodePrinter.class
