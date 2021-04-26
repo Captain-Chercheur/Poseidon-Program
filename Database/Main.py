@@ -50,7 +50,7 @@ async def get_metas():
 '''
     return database.get_metas()
 
-@app.get("/get_product/")
+@app.get("/get_product/{product}")
 async def get_product(product: str):
     print(product)
     '''**Patient**
