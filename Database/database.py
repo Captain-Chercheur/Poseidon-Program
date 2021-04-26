@@ -30,10 +30,10 @@ def get_metas():
 
         rows = c.fetchall()
 
-        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionState in rows:
+        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText in rows:
             yield {"id": id, "reference": reference, "state": state, "color": color, "brand": brand, "model": model,
                    "year": year, "NIC": NIC, "storage": storage, "weight": weight, "barcode": barcode,
-                   "designation": designation, "descriptionState":descriptionState}
+                   "designation": designation, "descriptionText":descriptionText}
 
 
 def get_product(barcode):
@@ -50,10 +50,10 @@ def get_product(barcode):
 
         rows = c.fetchall()
 
-        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation in rows:
+        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText in rows:
             yield {"id": id, "reference": reference, "state": state, "color": color, "brand": brand, "model": model,
                    "year": year, "NIC": NIC, "storage": storage, "weight": weight, "barcode": barcode,
-                   "designation": designation}
+                   "designation": designation, "description": descriptionText}
 
 
 def get_id():
@@ -73,7 +73,7 @@ def get_id():
             yield {id}
 
 
-def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionState, nic):
+def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionText, nic):
     ''' return (yield) the forecasts found in the database
     . if filter is provided, yield only those forecasts from the provided user
     . sort is provided to sort the selected forecasts
@@ -81,20 +81,20 @@ def put_metas(designation, state, color, brand, model, year, storage, weight, ba
     with connectBase() as coon:
         c = coon.cursor()
         if not reference:
-            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionState) 
-                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{reference}','{descriptionState}'); ''')
+            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionText) 
+                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{reference}','{descriptionText}'); ''')
         if not nic:
-            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, nic, descriptionState) 
-                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{nic}', '{descriptionState}'); ''')
+            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, nic, descriptionText) 
+                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{nic}', '{descriptionText}'); ''')
         if reference and nic:
-            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, nic, reference,descriptionState) 
-                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{nic}', '{reference}', '{descriptionState}'); ''')
+            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, nic, reference,descriptionText) 
+                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{nic}', '{reference}', '{descriptionText}'); ''')
         if not reference and nic:
-            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode,descriptionState) 
-                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', {descriptionState}); ''')
+            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode,descriptionText) 
+                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', {descriptionText}); ''')
 
         rows = c.fetchall()
 
         for Products in rows:
-            print(designation, state, color, brand, model, year, storage, weight, barcode, descriptionState)
-            yield designation, state, color, brand, model, year, storage, weight, barcode, descriptionState
+            print(designation, state, color, brand, model, year, storage, weight, barcode, descriptionText)
+            yield designation, state, color, brand, model, year, storage, weight, barcode, descriptionText
