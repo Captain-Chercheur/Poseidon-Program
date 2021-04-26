@@ -51,6 +51,8 @@ public class Main extends Application {
     private TextField referenceText = new TextField();
     private final Label state = new Label("Etat de la pièce");
     private TextField stateText = new TextField();
+    private final Label DescriptionState = new Label("Description de l'état de la pièce");
+    private TextField DescriptionStateText = new TextField();
     private final Label color = new Label("Couleur de la pièce");
     private TextField colorText = new TextField();
     private final Label brand = new Label("Marque de la pièce");
@@ -173,7 +175,7 @@ public class Main extends Application {
         submit.setOnAction(value -> {
             while(designationText.getText() == null || designationText.getText().trim().isEmpty() || stateText.getText() == null || stateText.getText().trim().isEmpty() || colorText.getText() == null || colorText.getText().trim().isEmpty() || shipBrandText.getText() == null || shipBrandText.getText().trim().isEmpty() ||
                     shipModelText.getText() == null || shipYearText.getText() == null || shipYearText.getText().trim().isEmpty() || weightText.getText() == null || weightText.getText().trim().isEmpty() ||
-                    stockPlacementText.getText() ==  null || stockPlacement.getText().trim().isEmpty() || !(picture && picture1 && picture2) ){
+                    stockPlacementText.getText() ==  null || designationText.getText() == null || designationText.getText().trim().isEmpty() || DescriptionStateText.getText() == null || DescriptionStateText.getText().trim().isEmpty()){
                 designationText.setPromptText("Ce champ ne peut pas être vide");
                 stateText.setPromptText("Ce champ ne peut pas être vide");
                 colorText.setPromptText("Ce champ ne peut pas être vide");
@@ -182,6 +184,7 @@ public class Main extends Application {
                 shipYearText.setPromptText("Ce champ ne peut pas être vide");
                 weightText.setPromptText("Ce champ ne peut pas être vide");
                 stockPlacementText.setPromptText("Ce champ ne peut pas être vide");
+                DescriptionStateText.setPromptText("Ce champ ne peut pas être vide");
 
                 return;
             }
@@ -217,21 +220,23 @@ public class Main extends Application {
         shipNumberText.setPromptText("ABC 67436 B6 06");
         weightText.setPromptText("2 kg");
         stockPlacementText.setPromptText("4F");
+        DescriptionStateText.setPromptText("Rayure côté droit");
 
 
         root.addRow(1, reference, referenceText);
         root.addRow(2, state, stateText);
-        root.addRow(3, color, colorText);
-        root.addRow(4, brand, brandText);
-        root.addRow(5, shipBrand, shipBrandText);
-        root.addRow(6, shipModel, shipModelText);
-        root.addRow(7, shipYear, shipYearText);
-        root.addRow(8, shipNumber, shipNumberText);
-        root.addRow(9, stockPlacement, stockPlacementText);
-        root.addRow(10, weight, weightText);
-        root.addRow(11, openCameraButton, openBarcodeScannerButton);
-        root.addRow(12, submit);
-        root.addRow(13, images);
+        root.addRow(3, DescriptionState, DescriptionStateText);
+        root.addRow(4, color, colorText);
+        root.addRow(5, brand, brandText);
+        root.addRow(6, shipBrand, shipBrandText);
+        root.addRow(7, shipModel, shipModelText);
+        root.addRow(8, shipYear, shipYearText);
+        root.addRow(9, shipNumber, shipNumberText);
+        root.addRow(10, stockPlacement, stockPlacementText);
+        root.addRow(11, weight, weightText);
+        root.addRow(12, openCameraButton, openBarcodeScannerButton);
+        root.addRow(13, submit);
+        root.addRow(14, images);
 
 
 
