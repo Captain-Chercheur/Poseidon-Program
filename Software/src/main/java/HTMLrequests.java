@@ -19,6 +19,7 @@ public class HTMLrequests {
          * Pour commencer, nous initialisation les quelques variables qui nous seront utiles. On concatène l'adresse
          * du web services ainsi que la requete pour former la requete uri.
          */
+        args = args.replaceAll(" ", "&nbsp;");
         String url = "http://176.31.163.242:8000/"+args;
         int responseCode = 0;
         String responseString = null;

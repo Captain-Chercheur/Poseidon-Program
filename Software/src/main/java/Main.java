@@ -99,6 +99,34 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
+    static Image image3;
+
+    static {
+        try {
+            image3 = new Image(new FileInputStream("no-image.png"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    static Image image4;
+
+    static {
+        try {
+            image4 = new Image(new FileInputStream("no-image.png"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    static Image image5;
+
+    static {
+        try {
+            image5 = new Image(new FileInputStream("no-image.png"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     Image crossImage = new Image(new FileInputStream("img_static/red-cross.png"));
 
@@ -106,20 +134,33 @@ public class Main extends Application {
     private static ImageView imageView = new ImageView(image);
     private static ImageView imageView1 = new ImageView(image1);
     private static ImageView imageView2 = new ImageView(image2);
+    private static ImageView imageView3 = new ImageView(image3);
+    private static ImageView imageView4 = new ImageView(image4);
+    private static ImageView imageView5 = new ImageView(image5);
 
     private ImageView crossImageView = new ImageView(crossImage);
     private ImageView crossImageView1 = new ImageView(crossImage);
     private ImageView crossImageView2 = new ImageView(crossImage);
+    private ImageView crossImageView3 = new ImageView(crossImage);
+    private ImageView crossImageView4 = new ImageView(crossImage);
+    private ImageView crossImageView5 = new ImageView(crossImage);
 
     Button openCameraButton = new Button("Take picture");
     Button openBarcodeScannerButton = new Button("Read barcode");
     Hyperlink removeImage = new Hyperlink();
     Hyperlink removeImage1 = new Hyperlink();
     Hyperlink removeImage2 = new Hyperlink();
+    Hyperlink removeImage3 = new Hyperlink();
+    Hyperlink removeImage4 = new Hyperlink();
+    Hyperlink removeImage5 = new Hyperlink();
 
     static boolean picture = false;
     static boolean picture1 = false;
     static boolean picture2 = false;
+    static boolean picture3 = false;
+    static boolean picture4 = false;
+    static boolean picture5 = false;
+
     static int cpt = 0;
 
     public static void SetImages(String imgName, int number) throws FileNotFoundException {
@@ -134,8 +175,17 @@ public class Main extends Application {
         } else if (!picture2) {
             imageView2.setImage(new Image(new FileInputStream("img_tmp/" + imgName)));
             picture2 = true;
+        }else if (!picture3) {
+            imageView3.setImage(new Image(new FileInputStream("img_tmp/" + imgName)));
+            picture3 = true;
+        } else if (!picture4) {
+            imageView4.setImage(new Image(new FileInputStream("img_tmp/" + imgName)));
+            picture4 = true;
+        } else if (!picture5) {
+            imageView5.setImage(new Image(new FileInputStream("img_tmp/" + imgName)));
+            picture5 = true;
         }
-        if (cpt == 3){
+        if (cpt == 6){
             cpt = 0;
         }
     }
@@ -147,10 +197,13 @@ public class Main extends Application {
         Webcam webcam = Webcam.getDefault();
         GridPane root = new GridPane();
 
-        Group images = new Group(imageView, imageView1, imageView2, removeImage, removeImage1, removeImage2);
+        Group images = new Group(imageView, imageView1, imageView2,imageView3, imageView4, imageView5, removeImage, removeImage1, removeImage2, removeImage3, removeImage4, removeImage5);
         removeImage.setGraphic(crossImageView);
         removeImage1.setGraphic(crossImageView1);
         removeImage2.setGraphic(crossImageView2);
+        removeImage3.setGraphic(crossImageView3);
+        removeImage4.setGraphic(crossImageView4);
+        removeImage5.setGraphic(crossImageView5);
 
         imageView.setFitHeight(150);
         imageView.setFitWidth(250);
@@ -158,16 +211,40 @@ public class Main extends Application {
         imageView1.setFitWidth(250);
         imageView2.setFitHeight(150);
         imageView2.setFitWidth(250);
-        imageView1.setX(0);
-        imageView1.setY(200);
+        imageView3.setFitHeight(150);
+        imageView3.setFitWidth(250);
+        imageView4.setFitHeight(150);
+        imageView4.setFitWidth(250);
+        imageView5.setFitHeight(150);
+        imageView5.setFitWidth(250);
+
+        imageView.setX(0);
+        imageView.setY(0);
+
         imageView1.setX(250);
         imageView1.setY(0);
+
         imageView2.setX(500);
         imageView2.setY(0);
+
+        imageView3.setX(0);
+        imageView3.setY(200);
+
+        imageView4.setX(250);
+        imageView4.setY(200);
+
+        imageView5.setX(500);
+        imageView5.setY(200);
 
         removeImage.setLayoutX(0);
         removeImage1.setLayoutX(250);
         removeImage2.setLayoutX(500);
+        removeImage3.setLayoutX(0);
+        removeImage3.setLayoutY(200);
+        removeImage4.setLayoutX(250);
+        removeImage4.setLayoutY(200);
+        removeImage5.setLayoutX(500);
+        removeImage5.setLayoutY(200);
 
         root.addRow(0, designation, designationText);
         Button submit = new Button("Submit");
@@ -175,7 +252,7 @@ public class Main extends Application {
         submit.setOnAction(value -> {
             while(designationText.getText() == null || designationText.getText().trim().isEmpty() || stateText.getText() == null || stateText.getText().trim().isEmpty() || colorText.getText() == null || colorText.getText().trim().isEmpty() || shipBrandText.getText() == null || shipBrandText.getText().trim().isEmpty() ||
                     shipModelText.getText() == null || shipYearText.getText() == null || shipYearText.getText().trim().isEmpty() || weightText.getText() == null || weightText.getText().trim().isEmpty() ||
-                    stockPlacementText.getText() ==  null || designationText.getText() == null || designationText.getText().trim().isEmpty() || DescriptionStateText.getText() == null || DescriptionStateText.getText().trim().isEmpty()){
+                    stockPlacementText.getText() ==  null || designationText.getText() == null || designationText.getText().trim().isEmpty() || DescriptionStateText.getText() == null || DescriptionStateText.getText().trim().isEmpty() || !picture || !picture1 || !picture2 || !picture3 || !picture4 || !picture5){
                 designationText.setPromptText("Ce champ ne peut pas être vide");
                 stateText.setPromptText("Ce champ ne peut pas être vide");
                 colorText.setPromptText("Ce champ ne peut pas être vide");
@@ -190,7 +267,7 @@ public class Main extends Application {
             }
                     try {
 
-
+                        if HTMLrequests.HTMLrequests("/get_")
                         String barcodeName = barcode.barcode(designationText.getText().toUpperCase(Locale.ROOT).charAt(0), stockPlacementText.getText());
                         String barcodeFileName = "barcodes/" + barcodeName;
                         System.out.println("Creating barcode...");
@@ -201,6 +278,7 @@ public class Main extends Application {
                         String metas = "put_metas/" + designationText.getText() + "/" + stateText.getText() + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
                                 shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/" + DescriptionStateText.getText() + "/%20"+"/%20";
                         HTMLrequests.HTMLrequests(metas);
+                        new shelf(primaryStage, stockPlacementText.getText());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -273,6 +351,30 @@ public class Main extends Application {
             try {
                 imageView2.setImage(new Image (new FileInputStream("no-image.png")));
                 picture2 = false;
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+        removeImage3.setOnAction(value -> {
+            try {
+                imageView3.setImage(new Image (new FileInputStream("no-image.png")));
+                picture3 = false;
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+        removeImage4.setOnAction(value -> {
+            try {
+                imageView4.setImage(new Image (new FileInputStream("no-image.png")));
+                picture4 = false;
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+        removeImage5.setOnAction(value -> {
+            try {
+                imageView5.setImage(new Image (new FileInputStream("no-image.png")));
+                picture5 = false;
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

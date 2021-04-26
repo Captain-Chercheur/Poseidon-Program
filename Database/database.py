@@ -73,6 +73,23 @@ def get_id():
             yield {id}
 
 
+def get_storage(storage):
+    ''' return (yield) the forecasts found in the database
+    . if filter is provided, yield only those forecasts from the provided user
+    . sort is provided to sort the selected forecasts
+    '''
+    with connectBase() as coon:
+        c = coon.cursor()
+        c.execute(f'''
+            SELECT STORAGE FROM Products WHERE STORAGE='{storage}';
+        ''')
+
+        rows = c.fetchall()
+
+        for storage in rows:
+            yield {storage}
+
+
 def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionText, nic):
     ''' return (yield) the forecasts found in the database
     . if filter is provided, yield only those forecasts from the provided user

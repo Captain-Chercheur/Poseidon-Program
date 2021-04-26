@@ -90,5 +90,19 @@ async def get_id():
 '''
     return database.get_id()
 
+
+@app.get("/get_storage/{storage}")
+async def get_storage(storage):
+    '''**Patient**
+    Create new patient
+    Exemple :
+    /Patients/?id=1587852?room=1?state=0?madicine=Moderna
+
+    id -> Social Security number
+    room -> Room where the patient will stay for the week
+    state -> 0=sick, 1->dead, 2->cured
+'''
+    return database.get_storage(storage)
+
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8080, log_level="info")
