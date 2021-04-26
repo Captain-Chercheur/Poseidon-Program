@@ -266,8 +266,9 @@ public class Main extends Application {
                 return;
             }
                     try {
-
-                        if HTMLrequests.HTMLrequests("/get_")
+                        if ((HTMLrequests.HTMLrequests("get_storage/"+stockPlacementText.getText())).equals("[]")){
+                                new shelf(primaryStage, stockPlacementText.getText());
+                        }
                         String barcodeName = barcode.barcode(designationText.getText().toUpperCase(Locale.ROOT).charAt(0), stockPlacementText.getText());
                         String barcodeFileName = "barcodes/" + barcodeName;
                         System.out.println("Creating barcode...");
@@ -278,7 +279,6 @@ public class Main extends Application {
                         String metas = "put_metas/" + designationText.getText() + "/" + stateText.getText() + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
                                 shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/" + DescriptionStateText.getText() + "/%20"+"/%20";
                         HTMLrequests.HTMLrequests(metas);
-                        new shelf(primaryStage, stockPlacementText.getText());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
