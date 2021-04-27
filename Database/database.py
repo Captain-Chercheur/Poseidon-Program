@@ -209,10 +209,27 @@ def product_waiting(id, waiting):
     with connectBase() as coon:
         c = coon.cursor()
         c.execute(f'''
-            UPDATE Product SET waiting = '{waiting}' WHERE id = '{id}';
+            UPDATE Products SET waiting = '{waiting}' WHERE id = '{id}';
         ''')
 
         rows = c.fetchall()
 
         for id, waiting in rows:
             yield {id, waiting}
+
+
+def chekc_product_waiting(id):
+    ''' return (yield) the forecasts found in the database
+    . if filter is provided, yield only those forecasts from the provided user
+    . sort is provided to sort the selected forecasts
+    '''
+    with connectBase() as coon:
+        c = coon.cursor()
+        c.execute(f'''
+            SELECT waiting FROM Products where id = {id} 
+        ''')
+
+        rows = c.fetchall()
+
+        for waiting in rows:
+            yield {waiting}
