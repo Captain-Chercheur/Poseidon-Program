@@ -211,7 +211,7 @@ def check_product_waiting(id):
     with connectBase() as coon:
         c = coon.cursor()
         c.execute(f'''
-            SELECT waiting FROM Products where id = '{id}'
+            SELECT waiting FROM Products where id = '{id}';
         ''')
 
         rows = c.fetchall()
@@ -228,7 +228,7 @@ def get_product_storage(barcode):
     with connectBase() as coon:
         c = coon.cursor()
         c.execute(f'''
-            SELECT storage FROM Products where barcode = '{barcode}'
+            SELECT storage FROM Products where barcode = '{barcode}';
         ''')
 
         rows = c.fetchall()
