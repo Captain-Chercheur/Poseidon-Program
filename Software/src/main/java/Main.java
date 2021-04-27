@@ -33,6 +33,7 @@ import java.util.TimerTask;
 
 import com.github.sarxos.webcam.Webcam;
 import javafx.util.Duration;
+import org.apache.tools.ant.taskdefs.Javadoc;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
@@ -288,6 +289,11 @@ public class Main extends Application {
                         if ((HTMLrequests.HTMLrequests("get_storage/"+stockPlacementText.getText())).equals("[]")){
                             new shelf(primaryStage, stockPlacementText.getText(), designationText.getText());
                         }
+                        String id = HTMLrequests.HTMLrequests("get_shelf_id").toString().replaceAll("(^\\[|\\]$)", "");
+                        id= id.toString().replaceAll("(^\\[|\\]$)", "");
+                        id = id.toString().replaceAll("(^\\[|\\]$)", "");
+                        int id_int = Integer.parseInt(id);
+                        id_int = id_int+1;
 
                         String barcodeName = barcode.barcode(designationText.getText().toUpperCase(Locale.ROOT).charAt(0), stockPlacementText.getText());
                         String barcodeFileName = "barcodes/" + barcodeName;
@@ -299,6 +305,8 @@ public class Main extends Application {
                         String metas = "put_metas/" + designationText.getText() + "/" + stateText.getText() + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
                                 shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/" + DescriptionStateText.getText() + "/%20"+"/%20";
                         HTMLrequests.HTMLrequests(metas);
+
+                        shelf.quantity.waiting_shelving(primaryStage, stockPlacementText.getText(), id_int, 1);
 
                     } catch (Exception e) {
                         e.printStackTrace();

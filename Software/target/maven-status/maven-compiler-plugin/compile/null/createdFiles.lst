@@ -3,6 +3,7 @@ HTMLrequests.class
 shelf.class
 barcodescanner.class
 shelf$2.class
+quantity_management_scanner.class
 Camera$1.class
 Main$1.class
 Main.class
@@ -10,5 +11,7 @@ imageProcess.class
 BarcodePrinter.class
 barcode.class
 barcodescanner$1.class
+shelf$quantity$1.class
 Camera.class
 shelf$quantity.class
+quantity_management_scanner$1.class

@@ -50,10 +50,10 @@ def get_product(barcode):
 
         rows = c.fetchall()
 
-        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText in rows:
+        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting in rows:
             yield {"id": id, "reference": reference, "state": state, "color": color, "brand": brand, "model": model,
                    "year": year, "NIC": NIC, "storage": storage, "weight": weight, "barcode": barcode,
-                   "designation": designation, "description": descriptionText}
+                   "designation": designation, "description": descriptionText, "waiting": waiting}
 
 
 def get_id():
@@ -184,21 +184,6 @@ def change_shelf_quantity(shelf, quantity):
 
         for quantity, shelf in rows:
             yield {quantity, shelf}
-def change_shelf_quantity(shelf, quantity):
-    ''' return (yield) the forecasts found in the database
-    . if filter is provided, yield only those forecasts from the provided user
-    . sort is provided to sort the selected forecasts
-    '''
-    with connectBase() as coon:
-        c = coon.cursor()
-        c.execute(f'''
-            UPDATE Shelf SET Quantity = '{quantity}' WHERE Storage = '{shelf}';
-        ''')
-
-        rows = c.fetchall()
-
-        for quantity, shelf in rows:
-            yield {quantity, shelf}
 
 
 def product_waiting(id, waiting):
@@ -233,3 +218,20 @@ def check_product_waiting(id):
 
         for waiting in rows:
             yield {waiting}
+
+
+def get_product_storage(barcode):
+    ''' return (yield) the forecasts found in the database
+    . if filter is provided, yield only those forecasts from the provided user
+    . sort is provided to sort the selected forecasts
+    '''
+    with connectBase() as coon:
+        c = coon.cursor()
+        c.execute(f'''
+            SELECT storage FROM Products where barcode = {barcode} 
+        ''')
+
+        rows = c.fetchall()
+
+        for storage in rows:
+            yield {storage}
