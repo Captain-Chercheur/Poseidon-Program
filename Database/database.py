@@ -218,7 +218,7 @@ def product_waiting(id, waiting):
             yield {id, waiting}
 
 
-def chekc_product_waiting(id):
+def check_product_waiting(id):
     ''' return (yield) the forecasts found in the database
     . if filter is provided, yield only those forecasts from the provided user
     . sort is provided to sort the selected forecasts

@@ -185,8 +185,8 @@ async def product_waiting(id, waiting):
 
 
 
-@app.get("/chekc_product_waiting/{id}")
-async def product_waiting(id):
+@app.get("/check_product_waiting/{id}")
+async def check_product_waiting(id):
     '''**Patient**
     Create new patient
     Exemple :
@@ -196,7 +196,7 @@ async def product_waiting(id):
     room -> Room where the patient will stay for the week
     state -> 0=sick, 1->dead, 2->cured
 '''
-    return database.product_waiting(id)
+    return database.check_product_waiting(id)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8080, log_level="info")
