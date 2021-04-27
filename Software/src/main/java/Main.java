@@ -69,6 +69,12 @@ public class Main extends Application {
     private TextField weightText = new TextField();
     private final Label stockPlacement = new Label("Emplacement de stockage de la pièce");
     private TextField stockPlacementText = new TextField();
+    private final Label faceAvant = new Label("Face avant");
+    private final Label faceArrière = new Label("Face arrière");
+    private final Label faceGauche = new Label("Face gauche");
+    private final Label faceDroite = new Label("Face droite");
+    private final Label faceDessous = new Label("Face dessous");
+    private final Label faceDessus = new Label("Face dessus");
 
     static Image image;
 
@@ -197,7 +203,8 @@ public class Main extends Application {
         Webcam webcam = Webcam.getDefault();
         GridPane root = new GridPane();
 
-        Group images = new Group(imageView, imageView1, imageView2,imageView3, imageView4, imageView5, removeImage, removeImage1, removeImage2, removeImage3, removeImage4, removeImage5);
+        Group images = new Group(imageView, imageView1, imageView2,imageView3, imageView4, imageView5, removeImage, removeImage1, removeImage2, removeImage3, removeImage4, removeImage5, faceAvant, faceArrière, faceGauche,faceDroite, faceDessous, faceDessus);
+
         removeImage.setGraphic(crossImageView);
         removeImage1.setGraphic(crossImageView1);
         removeImage2.setGraphic(crossImageView2);
@@ -219,32 +226,44 @@ public class Main extends Application {
         imageView5.setFitWidth(250);
 
         imageView.setX(0);
-        imageView.setY(0);
-
+        imageView.setY(20);
         imageView1.setX(250);
-        imageView1.setY(0);
-
+        imageView1.setY(20);
         imageView2.setX(500);
-        imageView2.setY(0);
-
+        imageView2.setY(20);
         imageView3.setX(0);
-        imageView3.setY(200);
-
+        imageView3.setY(220);
         imageView4.setX(250);
-        imageView4.setY(200);
-
+        imageView4.setY(220);
         imageView5.setX(500);
-        imageView5.setY(200);
+        imageView5.setY(220);
 
         removeImage.setLayoutX(0);
+        removeImage.setLayoutY(20);
         removeImage1.setLayoutX(250);
+        removeImage1.setLayoutY(20);
         removeImage2.setLayoutX(500);
+        removeImage2.setLayoutY(20);
         removeImage3.setLayoutX(0);
-        removeImage3.setLayoutY(200);
+        removeImage3.setLayoutY(220);
         removeImage4.setLayoutX(250);
-        removeImage4.setLayoutY(200);
+        removeImage4.setLayoutY(220);
         removeImage5.setLayoutX(500);
-        removeImage5.setLayoutY(200);
+        removeImage5.setLayoutY(220);
+
+        faceAvant.setLayoutX(0);
+        faceAvant.setLayoutY(0);
+        faceArrière.setLayoutX(250);
+        faceArrière.setLayoutY(0);
+        faceGauche.setLayoutX(500);
+        faceGauche.setLayoutY(0);
+        faceDroite.setLayoutX(0);
+        faceDroite.setLayoutY(200);
+        faceDessous.setLayoutX(250);
+        faceDessous.setLayoutY(200);
+        faceDessus.setLayoutX(500);
+        faceDessus.setLayoutY(200);
+
 
         root.addRow(0, designation, designationText);
         Button submit = new Button("Submit");
@@ -267,8 +286,9 @@ public class Main extends Application {
             }
                     try {
                         if ((HTMLrequests.HTMLrequests("get_storage/"+stockPlacementText.getText())).equals("[]")){
-                                new shelf(primaryStage, stockPlacementText.getText());
+                            new shelf(primaryStage, stockPlacementText.getText(), designationText.getText());
                         }
+
                         String barcodeName = barcode.barcode(designationText.getText().toUpperCase(Locale.ROOT).charAt(0), stockPlacementText.getText());
                         String barcodeFileName = "barcodes/" + barcodeName;
                         System.out.println("Creating barcode...");
@@ -279,6 +299,7 @@ public class Main extends Application {
                         String metas = "put_metas/" + designationText.getText() + "/" + stateText.getText() + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
                                 shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/" + DescriptionStateText.getText() + "/%20"+"/%20";
                         HTMLrequests.HTMLrequests(metas);
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

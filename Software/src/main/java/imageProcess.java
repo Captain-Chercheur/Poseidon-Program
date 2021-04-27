@@ -37,6 +37,30 @@ public class imageProcess {
 // Save as new image
         ImageIO.write(combined, "PNG", new File(fileName + "-combined.png"));
     }
+    public static void imageProcessShelf(String designation, String storage, String fileName) throws IOException {
 
+
+        BufferedImage image = ImageIO.read(new File("img_static/whitebackground.png"));
+        BufferedImage overlay = ImageIO.read(new File(fileName));
+
+// create the new image, canvas size is the max. of both image sizes
+        int w = Math.max(image.getWidth(), overlay.getWidth());
+        int h = Math.max(image.getHeight(), overlay.getHeight());
+        BufferedImage combined = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+
+// paint both images, preserving the alpha channels
+        Graphics g = combined.getGraphics();
+        g.drawImage(image, 0, 0, null);
+        g.drawImage(overlay, 0, 0, null);
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("Arial", Font.CENTER_BASELINE, 16));
+        g.drawString(designation, 0,130);
+        g.drawString(storage, 0,150);
+
+
+// Save as new image
+        ImageIO.write(combined, "PNG", new File(fileName + "-combined.png"));
+
+    }
 
 }

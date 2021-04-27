@@ -2,13 +2,16 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class shelf {
-    public shelf(Stage primaryStage, String storage) {
+    public shelf(Stage primaryStage, String storage, String designation) {
         final Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.initOwner(primaryStage);
@@ -21,12 +24,60 @@ public class shelf {
         Oui.setOnMouseClicked(new EventHandler<Event>() {
                                   @Override
                                   public void handle(Event arg0) {
-                                      HTMLrequests.HTMLrequests("");
+                                      String barcodeName = null;
+                                      try {
+                                          barcodeName = barcode.shelf_barcode(designation.substring(0,2), storage);
+                                      } catch (Exception e) {
+                                          e.printStackTrace();
+                                      }
+                                      String barcodeFileName = "shelf_barcodes/" + barcodeName;
+                                      System.out.println("Creating barcode...");
+                                      try {
+                                          imageProcess.imageProcessShelf(designation, storage, barcodeFileName);
+                                      } catch (IOException e) {
+                                          e.printStackTrace();
+                                      }
+                                      System.out.println("Processing image...");
+                                      try {
+                                          BarcodePrinter.BarcodePrinter(barcodeFileName);
+                                      } catch (Exception e) {
+                                          e.printStackTrace();
+                                      }
+                                      System.out.println("Printing image...");
+                                      HTMLrequests.HTMLrequests("new_shelf/" + barcodeName + "/" + storage + "/" + designation + "/" + 1);
+                                      dialog.close();
                                   }
                               });
+        Non.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                dialog.close();
+            }
+        });
         Scene dialogScene = new Scene(dialogVbox, 500, 200);
         dialog.setScene(dialogScene);
         dialog.show();
     }
 
+    public static class quantity {
+        public static void adding_quantity(Stage primaryStage, String designation, String stockPlacement) {
+
+
+            String request = HTMLrequests.HTMLrequests("get_shelf_quantity/" + stockPlacement);
+            request = request.replaceAll("[\\[\\](){}]", "");
+            int quantity = Integer.parseInt(request);
+            quantity += 1;
+            HTMLrequests.HTMLrequests("change_shelf_quantity/" + stockPlacement + "/" + quantity);
+        }
+        public static void removing_quantity(Stage primaryStage, String stockPlacement){
+            String request = HTMLrequests.HTMLrequests("get_shelf_quantity/" + stockPlacement);
+            request = request.replaceAll("[\\[\\](){}]", "");
+            int quantity = Integer.parseInt(request);
+            quantity -= 1;
+            HTMLrequests.HTMLrequests("change_shelf_quantity/" + stockPlacement + "/" + quantity);
+        }
+        public static void waiting_shelving(Stage primaryStage, String stockPlacement){
+
+        }
+    }
 }
