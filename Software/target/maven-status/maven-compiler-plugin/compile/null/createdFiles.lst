@@ -11,6 +11,7 @@ imageProcess.class
 BarcodePrinter.class
 barcode.class
 barcodescanner$1.class
+shelf$quantity$2.class
 shelf$quantity$1.class
 Camera.class
 shelf$quantity.class

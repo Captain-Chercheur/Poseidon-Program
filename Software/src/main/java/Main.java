@@ -268,7 +268,7 @@ public class Main extends Application {
 
         root.addRow(0, designation, designationText);
         Button submit = new Button("Submit");
-        Button refresh = new Button("Refresh");
+        Button refresh = new Button("Change quantities");
         submit.setOnAction(value -> {
             while(designationText.getText() == null || designationText.getText().trim().isEmpty() || stateText.getText() == null || stateText.getText().trim().isEmpty() || colorText.getText() == null || colorText.getText().trim().isEmpty() || shipBrandText.getText() == null || shipBrandText.getText().trim().isEmpty() ||
                     shipModelText.getText() == null || shipYearText.getText() == null || shipYearText.getText().trim().isEmpty() || weightText.getText() == null || weightText.getText().trim().isEmpty() ||
@@ -289,7 +289,7 @@ public class Main extends Application {
                         if ((HTMLrequests.HTMLrequests("get_storage/"+stockPlacementText.getText())).equals("[]")){
                             new shelf(primaryStage, stockPlacementText.getText(), designationText.getText());
                         }
-                        String id = HTMLrequests.HTMLrequests("get_shelf_id").toString().replaceAll("(^\\[|\\]$)", "");
+                        String id = HTMLrequests.HTMLrequests("get_id/").toString().replaceAll("(^\\[|\\]$)", "");
                         id= id.toString().replaceAll("(^\\[|\\]$)", "");
                         id = id.toString().replaceAll("(^\\[|\\]$)", "");
                         int id_int = Integer.parseInt(id);
@@ -342,7 +342,7 @@ public class Main extends Application {
         root.addRow(10, stockPlacement, stockPlacementText);
         root.addRow(11, weight, weightText);
         root.addRow(12, openCameraButton, openBarcodeScannerButton);
-        root.addRow(13, submit);
+        root.addRow(13, submit, refresh);
         root.addRow(14, images);
 
 
@@ -353,7 +353,11 @@ public class Main extends Application {
         refresh.setOnMouseClicked(new EventHandler<Event>() {
             @Override
             public void handle(Event arg0) {
-                root.getChildren().remove(images);
+                try {
+                    new quantity_management_scanner();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 }
         });
 

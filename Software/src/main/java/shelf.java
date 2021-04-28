@@ -95,9 +95,16 @@ public class shelf {
                 public void handle(Event arg0) {
                     try {
                         new quantity_management_scanner();
+                        dialog.close();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                }
+            });
+            Non.setOnMouseClicked(new EventHandler<Event>() {
+                @Override
+                public void handle(Event arg0) {
+                    dialog.close();
                 }
             });
         }
