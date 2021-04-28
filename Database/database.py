@@ -33,7 +33,7 @@ def get_metas():
         for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting in rows:
             yield {"data = '[""{id": id, "reference": reference, "state": state, "color": color, "brand": brand, "model": model,
                     "year": year, "NIC": NIC, "storage": storage, "weight": weight, "barcode": barcode,
-                    "designation": designation, "descriptionText": descriptionText, "waiting": waiting}
+                    "designation": designation, "descriptionText": descriptionText, "waiting": waiting},";"
 
 
 def get_product(barcode):
