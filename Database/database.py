@@ -30,10 +30,10 @@ def get_metas():
 
         rows = c.fetchall()
 
-        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting in rows:
+        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting, quantity, accessoire, descriptionComplementaire in rows:
             yield {"Nom": designation, "Référence": reference, "Etat": state, "Description": descriptionText,
                    "Coleur": color, "Poid": weight, "Marque": brand, "Model": model, "Année": year, "NIC": NIC,
-                   "id": id, "storage": storage, "barcode": barcode, "waiting": waiting}
+                   "id": id, "storage": storage, "barcode": barcode, "waiting": waiting, "quantity":quantity, "accessoires":accessoire, "descriptionComplementaire":descriptionComplementaire}
 
 def get_product(barcode):
     ''' return (yield) the forecasts found in the database
@@ -89,7 +89,7 @@ def get_storage(storage):
             yield {storage}
 
 
-def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionText, nic, quantity, accessoire, descriptionComplementaire,):
+def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionText, nic, quantity, accessoire, descriptionComplementaire):
     ''' return (yield) the forecasts found in the database
     . if filter is provided, yield only those forecasts from the provided user
     . sort is provided to sort the selected forecasts
