@@ -2,45 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Database">
-      <change afterPath="$PROJECT_DIR$/../Software/.idea/artifacts/Main_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/.idea/artifacts/javaFxTEST.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/C-106-1B" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/C-106-1B-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Ciseaux-09:55:43.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Ciseaux-09:55:48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Ciseaux-09:55:51.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Ciseaux-09:55:58.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Ciseaux-09:56:00.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Ciseaux-09:56:03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Ciseaux-09:56:05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Ciseaux-09:56:07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Ciseaux-09:56:10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Coulisseau-10:06:08.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Coulisseau-10:06:25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Coulisseau-10:06:34.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Coulisseau-10:06:39.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Coulisseau-10:06:45.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Coulisseau-10:06:50.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/eza-11:03:51.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/Ci-21-1B" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/Ci-21-1B-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/.idea/artifacts/Main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/shelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +61,7 @@
       <workItem from="1619594514228" duration="1184000" />
       <workItem from="1619597934160" duration="1808000" />
       <workItem from="1619683402954" duration="120000" />
-      <workItem from="1619772605005" duration="1188000" />
+      <workItem from="1619772605005" duration="1323000" />
     </task>
     <task id="LOCAL-00001" summary="Database creation and py program to access it via web">
       <created>1619000443889</created>
@@ -352,7 +315,21 @@
       <option name="project" value="LOCAL" />
       <updated>1619605688517</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Database">
+      <created>1619774189234</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1619774189234</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Database">
+      <created>1619774225778</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1619774225778</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
