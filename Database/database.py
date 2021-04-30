@@ -30,10 +30,10 @@ def get_metas():
 
         rows = c.fetchall()
 
-        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting, quantity, accessoire, descriptionComplementaire in rows:
+        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting, quantities, accessoire, descriptionComplementaire in rows:
             yield {"Nom": designation, "Référence": reference, "Etat": state, "Description": descriptionText,
                    "Coleur": color, "Poid": weight, "Marque": brand, "Model": model, "Année": year, "NIC": NIC,
-                   "id": id, "storage": storage, "barcode": barcode, "waiting": waiting, "quantity":quantity, "accessoires":accessoire, "descriptionComplementaire":descriptionComplementaire}
+                   "id": id, "storage": storage, "barcode": barcode, "waiting": waiting, "quantities":quantities, "accessoires":accessoire, "descriptionComplementaire":descriptionComplementaire}
 
 def get_product(barcode):
     ''' return (yield) the forecasts found in the database
@@ -97,7 +97,7 @@ def put_metas(designation, state, color, brand, model, year, storage, weight, ba
     with connectBase() as coon:
         c = coon.cursor()
         if not reference:
-            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionText, quantity, accessoire, descriptionComplementaire) 
+            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionText, quantities, accessoire, descriptionComplementaire) 
                     VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{reference}','{descriptionText}','{quantity}','{accessoire}', '{descriptionComplementaire}'); ''')
         if not nic:
             c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, nic, descriptionText) 
