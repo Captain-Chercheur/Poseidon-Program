@@ -61,7 +61,7 @@
       <workItem from="1619594514228" duration="1184000" />
       <workItem from="1619597934160" duration="1808000" />
       <workItem from="1619683402954" duration="120000" />
-      <workItem from="1619772605005" duration="2005000" />
+      <workItem from="1619772605005" duration="2105000" />
     </task>
     <task id="LOCAL-00001" summary="Database creation and py program to access it via web">
       <created>1619000443889</created>
@@ -343,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619774461274</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Database">
+      <created>1619774920023</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1619774920023</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
