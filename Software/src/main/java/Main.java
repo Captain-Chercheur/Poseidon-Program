@@ -1,15 +1,11 @@
-import com.sun.glass.ui.Timer;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import com.github.sarxos.webcam.Webcam;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.fxml.*;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -18,25 +14,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.TimerTask;
-
-import com.github.sarxos.webcam.Webcam;
-import javafx.util.Duration;
-import org.apache.tools.ant.taskdefs.Javadoc;
-
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 
 public class Main extends Application {
     public Main() throws IOException {
@@ -70,6 +54,13 @@ public class Main extends Application {
     private TextField weightText = new TextField();
     private final Label stockPlacement = new Label("Emplacement de stockage de la pièce");
     private TextField stockPlacementText = new TextField();
+    private final Label quantity = new Label("Quantité");
+    private TextField quantityText = new TextField();
+    private final Label accessoire = new Label("Accessoires fournies");
+    private TextField accessoireText = new TextField();
+    private final Label descriptionComplementaire = new Label("Description complémentaire");
+    private TextField descriptionComplementaireText = new TextField();
+
     private final Label faceAvant = new Label("Face avant");
     private final Label faceArrière = new Label("Face arrière");
     private final Label faceGauche = new Label("Face gauche");
@@ -294,6 +285,7 @@ public class Main extends Application {
                         id = id.toString().replaceAll("(^\\[|\\]$)", "");
                         int id_int = Integer.parseInt(id);
                         id_int = id_int+1;
+                        shelf.quantity.adding_quantity(stockPlacementText.getText(), quantityText.getText());
 
                         String barcodeName = barcode.barcode(designationText.getText().toUpperCase(Locale.ROOT).charAt(0), stockPlacementText.getText());
                         String barcodeFileName = "barcodes/" + barcodeName;
@@ -303,7 +295,7 @@ public class Main extends Application {
                         BarcodePrinter.BarcodePrinter(barcodeFileName);
                         System.out.println("Printing image...");
                         String metas = "put_metas/" + designationText.getText() + "/" + stateText.getText() + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
-                                shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/" + DescriptionStateText.getText() + "/%20"+"/%20";
+                                shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/" + DescriptionStateText.getText() + "/%20"+"/%20/" + quantityText.getText() + "/" + accessoireText.getText() + "/" + descriptionComplementaireText.getText();
                         HTMLrequests.HTMLrequests(metas);
 
                         shelf.quantity.waiting_shelving(primaryStage, stockPlacementText.getText(), id_int, 1);
@@ -328,6 +320,9 @@ public class Main extends Application {
         weightText.setPromptText("2 kg");
         stockPlacementText.setPromptText("4F");
         DescriptionStateText.setPromptText("Rayure côté droit");
+        descriptionComplementaireText.setPromptText("Poulie simple pour palen");
+        descriptionComplementaireText.setPromptText("Poulie simple pour palen");
+        descriptionComplementaireText.setPromptText("Poulie simple pour palen");
 
 
         root.addRow(1, reference, referenceText);
@@ -335,15 +330,18 @@ public class Main extends Application {
         root.addRow(3, DescriptionState, DescriptionStateText);
         root.addRow(4, color, colorText);
         root.addRow(5, brand, brandText);
-        root.addRow(6, shipBrand, shipBrandText);
-        root.addRow(7, shipModel, shipModelText);
-        root.addRow(8, shipYear, shipYearText);
-        root.addRow(9, shipNumber, shipNumberText);
-        root.addRow(10, stockPlacement, stockPlacementText);
-        root.addRow(11, weight, weightText);
-        root.addRow(12, openCameraButton, openBarcodeScannerButton);
-        root.addRow(13, submit, refresh);
-        root.addRow(14, images);
+        root.addRow(6, descriptionComplementaire, descriptionComplementaireText);
+        root.addRow(7, accessoire, accessoireText);
+        root.addRow(8, shipBrand, shipBrandText);
+        root.addRow(9, shipModel, shipModelText);
+        root.addRow(10, shipYear, shipYearText);
+        root.addRow(11, shipNumber, shipNumberText);
+        root.addRow(12, stockPlacement, stockPlacementText);
+        root.addRow(13, weight, weightText);
+        root.addRow(14, quantity, quantityText);
+        root.addRow(15, openCameraButton, openBarcodeScannerButton);
+        root.addRow(16, submit, refresh);
+        root.addRow(17, images);
 
 
 
@@ -361,7 +359,7 @@ public class Main extends Application {
                 }
         });
 
-        Scene scene = new Scene(hbox, 1000, 800, Color.WHITE);
+        Scene scene = new Scene(hbox, 1000, 900, Color.WHITE);
         Label label = new Label("");
 
         removeImage.setOnAction(value -> {

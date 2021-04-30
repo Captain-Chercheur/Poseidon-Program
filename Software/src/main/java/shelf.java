@@ -60,13 +60,13 @@ public class shelf {
     }
 
     public static class quantity {
-        public static void adding_quantity(Stage primaryStage, String designation, String stockPlacement) {
+        public static void adding_quantity(String stockPlacement, String quantity_user) {
 
 
             String request = HTMLrequests.HTMLrequests("get_shelf_quantity/" + stockPlacement);
             request = request.replaceAll("[\\[\\](){}]", "");
             int quantity = Integer.parseInt(request);
-            quantity += 1;
+            quantity += Integer.parseInt(quantity_user);
             HTMLrequests.HTMLrequests("change_shelf_quantity/" + stockPlacement + "/" + quantity);
         }
         public static void removing_quantity(Stage primaryStage, String stockPlacement){

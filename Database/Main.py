@@ -69,8 +69,8 @@ async def get_product(product: str):
 
 
 @app.get(
-    "/put_metas/{designation}/{state}/{color}/{brand}/{model}/{year}/{storage}/{weight}/{barcode}/{descriptionText}/{reference}/{nic}")
-def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, descriptionText,
+    "/put_metas/{designation}/{state}/{color}/{brand}/{model}/{year}/{storage}/{weight}/{barcode}/{descriptionText}/{reference}/{nic}/{quantity}/{accessoire}/{descriptionComplementaire}")
+def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, descriptionText,quantity, accessoire, descriptionComplementaire,
               reference: Optional[str], nic: Optional[str]):
     '''**Patient**
     Create new patient
@@ -82,7 +82,7 @@ def put_metas(designation, state, color, brand, model, year, storage, weight, ba
     state -> 0=sick, 1->dead, 2->cured
 '''
     return database.put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference,
-                              descriptionText, nic)
+                              descriptionText, nic, quantity, accessoire, descriptionComplementaire,)
 
 
 @app.get("/get_id/")
