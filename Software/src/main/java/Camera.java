@@ -23,10 +23,9 @@ public class Camera {
 
     private static String [] imgName;
 
-    public static String Camera(String designation) throws InterruptedException, IOException {
+    public static String Camera(String designation, Webcam webcam) throws InterruptedException, IOException {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
 
-        Webcam webcam = Webcam.getDefault();
         webcam.setViewSize(new Dimension(640, 480));
 
         WebcamPanel panel = new WebcamPanel(webcam);

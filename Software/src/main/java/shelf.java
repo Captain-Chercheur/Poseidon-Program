@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class shelf {
-    public shelf(Stage primaryStage, String storage, String designation) {
+    public shelf(Stage primaryStage, String storage, String designation, String printerChossen) {
         final Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.initOwner(primaryStage);
@@ -39,7 +39,7 @@ public class shelf {
                                       }
                                       System.out.println("Processing image...");
                                       try {
-                                          BarcodePrinter.BarcodePrinter(barcodeFileName);
+                                          BarcodePrinter.BarcodePrinter(barcodeFileName, printerChossen);
                                       } catch (Exception e) {
                                           e.printStackTrace();
                                       }

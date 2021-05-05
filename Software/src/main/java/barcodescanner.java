@@ -1,5 +1,4 @@
-import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
@@ -30,15 +29,14 @@ public class barcodescanner extends JFrame implements Runnable, ThreadFactory {
     private static final long serialVersionUID = 6441489157408381878L;
 
     private Executor executor = Executors.newSingleThreadExecutor(this);
-
-    private Webcam webcam = null;
+    public static Webcam webcam;
     private WebcamPanel panel = null;
     private JTextArea textarea = null;
 
 
-    public barcodescanner() throws IOException {
+    public barcodescanner(Webcam webcam_net) throws IOException {
         super();
-
+        webcam = webcam_net;
         setLayout(new FlowLayout());
         setTitle("Read Bar");
         addWindowListener(new WindowAdapter() {
@@ -49,7 +47,6 @@ public class barcodescanner extends JFrame implements Runnable, ThreadFactory {
 
         Dimension size = WebcamResolution.QVGA.getSize();
 
-        webcam = Webcam.getWebcams().get(0);
         webcam.setViewSize(size);
 
         panel = new WebcamPanel(webcam);
@@ -96,9 +93,10 @@ public class barcodescanner extends JFrame implements Runnable, ThreadFactory {
                 } catch (NotFoundException e) {
                     // fall thru, it means there is no QR code in image
                 }
-            }
 
+            }
             if (result != null) {
+                Toolkit.getDefaultToolkit().beep();
                 String detailsList = HTMLrequests.HTMLrequests("get_product/"+result.getText());
                 String details = detailsList.replaceAll("(\"\\^\\[|\\{\\\\}\\\\]\\$\")", "");
                 String[] aled = details.split(",");

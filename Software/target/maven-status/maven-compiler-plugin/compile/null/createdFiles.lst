@@ -1,4 +1,5 @@
 shelf$1.class
+Main$4.class
 HTMLrequests.class
 shelf.class
 barcodescanner.class
@@ -8,10 +9,14 @@ Camera$1.class
 Main$1.class
 Main.class
 imageProcess.class
+Main$2.class
 BarcodePrinter.class
+Menus$WebCamInfo.class
 barcode.class
+Main$3.class
 barcodescanner$1.class
 shelf$quantity$2.class
+Menus.class
 shelf$quantity$1.class
 Camera.class
 shelf$quantity.class

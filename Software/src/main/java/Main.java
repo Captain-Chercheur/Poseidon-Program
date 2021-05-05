@@ -1,26 +1,44 @@
 import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamDevice;
+import com.github.sarxos.webcam.ds.buildin.WebcamDefaultDevice;
+import com.thoughtworks.qdox.builder.impl.EvaluatingVisitor;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.event.EventTarget;
+import javafx.print.Printer;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import org.apache.tools.ant.Project;
 
+import javax.print.DocFlavor;
+import javax.print.PrintService;
+import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.concurrent.atomic.AtomicReference;
+import javax.print.PrintServiceLookup;
+
+
 
 public class Main extends Application {
     public Main() throws IOException {
@@ -30,36 +48,44 @@ public class Main extends Application {
 
     public static void main(String[] args) { Application.launch(args); }
 
-    public final Label designation = new Label("Désignation de la pièce");
+    public final Label designation = new Label("Désignation de la pièce*");
     private TextField designationText = new TextField();
     private final Label reference = new Label("Référence du produit");
     private TextField referenceText = new TextField();
-    private final Label state = new Label("Etat de la pièce");
-    private TextField stateText = new TextField();
-    private final Label DescriptionState = new Label("Description de l'état de la pièce");
+    private final Label state = new Label("Etat de la pièce*");
+    String stateText;
+    private final Label DescriptionState = new Label("Description de l'état de la pièce*");
     private TextField DescriptionStateText = new TextField();
-    private final Label color = new Label("Couleur de la pièce");
+    private final Label color = new Label("Couleur de la pièce*");
     private TextField colorText = new TextField();
     private final Label brand = new Label("Marque de la pièce");
     private TextField brandText = new TextField();
-    private final Label shipBrand = new Label("Marque du bateau de provenance");
+    private final Label shipBrand = new Label("Marque du bateau de provenance*");
     private TextField shipBrandText = new TextField();
-    private final Label shipModel = new Label("Model du bateau de provenance");
+    private final Label shipModel = new Label("Model du bateau de provenance*");
     private TextField shipModelText = new TextField();
     private final Label shipYear = new Label("Année du bateau de provenance");
     private TextField shipYearText = new TextField();
     private final Label shipNumber = new Label("Numéro de série du bateau (NIC)");
     private TextField shipNumberText = new TextField();
-    private final Label weight = new Label("Poids de la pièce");
+    private final Label weight = new Label("Poids de la pièce (en gramme) *");
     private TextField weightText = new TextField();
-    private final Label stockPlacement = new Label("Emplacement de stockage de la pièce");
+    private final Label stockPlacement = new Label("Emplacement de stockage de la pièce*");
     private TextField stockPlacementText = new TextField();
-    private final Label quantity = new Label("Quantité");
+    private final Label quantity = new Label("Quantité*");
     private TextField quantityText = new TextField();
     private final Label accessoire = new Label("Accessoires fournies");
     private TextField accessoireText = new TextField();
-    private final Label descriptionComplementaire = new Label("Description complémentaire");
+    private final Label descriptionComplementaire = new Label("Description complémentaire*");
     private TextField descriptionComplementaireText = new TextField();
+
+    private final Label PVPHT = new Label("Prix de vente HT (presse enter)* : ");
+    private TextField PVPHTText = new TextField();
+    private final Label PVPCommission  = new Label("Prix de vente HT avec commission : ");
+    private final Label PVPTTC = new Label("Prix de vente TTC : ");
+    private final Label PrixConseille = new Label("Prix de vente HT coneillé : ");
+    private final Label EtatDuProduit = new Label("");
+
 
     private final Label faceAvant = new Label("Face avant");
     private final Label faceArrière = new Label("Face arrière");
@@ -67,6 +93,7 @@ public class Main extends Application {
     private final Label faceDroite = new Label("Face droite");
     private final Label faceDessous = new Label("Face dessous");
     private final Label faceDessus = new Label("Face dessus");
+
 
     static Image image;
 
@@ -187,12 +214,15 @@ public class Main extends Application {
             cpt = 0;
         }
     }
+    String selectedItem = null;
+    Webcam webcam = Webcam.getDefault();
+    String printerChoosen = PrintServiceLookup.lookupDefaultPrintService().toString();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         primaryStage.setTitle("Poseidon Program");
-        Webcam webcam = Webcam.getDefault();
+
         GridPane root = new GridPane();
 
         Group images = new Group(imageView, imageView1, imageView2,imageView3, imageView4, imageView5, removeImage, removeImage1, removeImage2, removeImage3, removeImage4, removeImage5, faceAvant, faceArrière, faceGauche,faceDroite, faceDessous, faceDessus);
@@ -256,20 +286,17 @@ public class Main extends Application {
         faceDessus.setLayoutX(500);
         faceDessus.setLayoutY(200);
 
-
-        root.addRow(0, designation, designationText);
+        root.addRow(1, designation, designationText);
         Button submit = new Button("Submit");
         Button refresh = new Button("Change quantities");
         submit.setOnAction(value -> {
-            while(designationText.getText() == null || designationText.getText().trim().isEmpty() || stateText.getText() == null || stateText.getText().trim().isEmpty() || colorText.getText() == null || colorText.getText().trim().isEmpty() || shipBrandText.getText() == null || shipBrandText.getText().trim().isEmpty() ||
-                    shipModelText.getText() == null || shipYearText.getText() == null || shipYearText.getText().trim().isEmpty() || weightText.getText() == null || weightText.getText().trim().isEmpty() ||
+            while(designationText.getText() == null || designationText.getText().trim().isEmpty() || colorText.getText() == null || colorText.getText().trim().isEmpty() || shipBrandText.getText() == null || shipBrandText.getText().trim().isEmpty() ||
+                    shipModelText.getText() == null || weightText.getText() == null || weightText.getText().trim().isEmpty() ||
                     stockPlacementText.getText() ==  null || designationText.getText() == null || designationText.getText().trim().isEmpty() || DescriptionStateText.getText() == null || DescriptionStateText.getText().trim().isEmpty() || !picture || !picture1 || !picture2 || !picture3 || !picture4 || !picture5){
                 designationText.setPromptText("Ce champ ne peut pas être vide");
-                stateText.setPromptText("Ce champ ne peut pas être vide");
                 colorText.setPromptText("Ce champ ne peut pas être vide");
                 shipBrandText.setPromptText("Ce champ ne peut pas être vide");
                 shipModelText.setPromptText("Ce champ ne peut pas être vide");
-                shipYearText.setPromptText("Ce champ ne peut pas être vide");
                 weightText.setPromptText("Ce champ ne peut pas être vide");
                 stockPlacementText.setPromptText("Ce champ ne peut pas être vide");
                 DescriptionStateText.setPromptText("Ce champ ne peut pas être vide");
@@ -278,27 +305,34 @@ public class Main extends Application {
             }
                     try {
                         if ((HTMLrequests.HTMLrequests("get_storage/"+stockPlacementText.getText())).equals("[]")){
-                            new shelf(primaryStage, stockPlacementText.getText(), designationText.getText());
+                            new shelf(primaryStage, stockPlacementText.getText(), designationText.getText(), printerChoosen);
                         }
-                        String id = HTMLrequests.HTMLrequests("get_id/").toString().replaceAll("(^\\[|\\]$)", "");
-                        id= id.toString().replaceAll("(^\\[|\\]$)", "");
-                        id = id.toString().replaceAll("(^\\[|\\]$)", "");
-                        int id_int = Integer.parseInt(id);
-                        id_int = id_int+1;
-                        shelf.quantity.adding_quantity(stockPlacementText.getText(), quantityText.getText());
 
-                        String barcodeName = barcode.barcode(designationText.getText().toUpperCase(Locale.ROOT).charAt(0), stockPlacementText.getText());
-                        String barcodeFileName = "barcodes/" + barcodeName;
-                        System.out.println("Creating barcode...");
-                        imageProcess.imageProcess(designationText.getText(), stateText.getText(), shipBrandText.getText(), shipModelText.getText(), shipYearText.getText(), colorText.getText(), weightText.getText(), stockPlacementText.getText(), barcodeFileName);
-                        System.out.println("Processing image...");
-                        BarcodePrinter.BarcodePrinter(barcodeFileName);
-                        System.out.println("Printing image...");
-                        String metas = "put_metas/" + designationText.getText() + "/" + stateText.getText() + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
-                                shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/" + DescriptionStateText.getText() + "/%20"+"/%20/" + quantityText.getText() + "/" + accessoireText.getText() + "/" + descriptionComplementaireText.getText();
-                        HTMLrequests.HTMLrequests(metas);
 
-                        shelf.quantity.waiting_shelving(primaryStage, stockPlacementText.getText(), id_int, 1);
+
+                        for (int i=0; i < Integer.parseInt(quantityText.getText()); i++){
+                            String id = HTMLrequests.HTMLrequests("get_id/").toString().replaceAll("(^\\[|\\]$)", "");
+                            id= id.toString().replaceAll("(^\\[|\\]$)", "");
+                            id = id.toString().replaceAll("(^\\[|\\]$)", "");
+                            int id_int = Integer.parseInt(id);
+                            id_int = id_int+1;
+                            shelf.quantity.adding_quantity(stockPlacementText.getText(), quantityText.getText());
+                            String barcodeName = barcode.barcode(designationText.getText().toUpperCase(Locale.ROOT).charAt(0), stockPlacementText.getText());
+                            String barcodeFileName = "barcodes/" + barcodeName;
+                            System.out.println("Creating barcode...");
+                            
+
+                            imageProcess.imageProcess(designationText.getText(), selectedItem, shipBrandText.getText(), shipModelText.getText(), shipYearText.getText(), colorText.getText(), weightText.getText(), stockPlacementText.getText(), barcodeFileName);
+                            System.out.println("Processing image...");
+                            BarcodePrinter.BarcodePrinter(barcodeFileName, printerChoosen);
+                            System.out.println("Printing image...");
+                            String metas = "put_metas/" + designationText.getText() + "/" + stateText + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
+                                    shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/" + DescriptionStateText.getText() + "/%20"+"/%20/" + quantityText.getText() + "/" + accessoireText.getText() + "/" + descriptionComplementaireText.getText();
+                            HTMLrequests.HTMLrequests(metas);
+
+                            shelf.quantity.waiting_shelving(primaryStage, stockPlacementText.getText(), id_int, 1);
+                        }
+
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -309,39 +343,205 @@ public class Main extends Application {
         );
         designationText.setPromptText("Poulie simple");
         referenceText.setPromptText("66978");
-        stateText.setPromptText("Neuf");
         colorText.setPromptText("Noir");
         brandText.setPromptText("HOLT");
-        shipBrandText.setPromptText("Sealine");
-        shipModelText.setPromptText("F42/5");
-        shipYearText.setPromptText("2010");
-        shipBrandText.setPromptText("Sealine");
+        shipBrandText.setPromptText("Beneteau");
+        shipModelText.setPromptText("First 40");
+        shipYearText.setPromptText("2008");
         shipNumberText.setPromptText("ABC 67436 B6 06");
-        weightText.setPromptText("2 kg");
+        weightText.setPromptText("200 g");
         stockPlacementText.setPromptText("4F");
         DescriptionStateText.setPromptText("Rayure côté droit");
         descriptionComplementaireText.setPromptText("Poulie simple pour palen");
         descriptionComplementaireText.setPromptText("Poulie simple pour palen");
         descriptionComplementaireText.setPromptText("Poulie simple pour palen");
 
+        // Create a label
+        Label description_label =
+                new Label("This is a combo box example ");
 
-        root.addRow(1, reference, referenceText);
-        root.addRow(2, state, stateText);
-        root.addRow(3, DescriptionState, DescriptionStateText);
-        root.addRow(4, color, colorText);
-        root.addRow(5, brand, brandText);
-        root.addRow(6, descriptionComplementaire, descriptionComplementaireText);
-        root.addRow(7, accessoire, accessoireText);
-        root.addRow(8, shipBrand, shipBrandText);
-        root.addRow(9, shipModel, shipModelText);
-        root.addRow(10, shipYear, shipYearText);
-        root.addRow(11, shipNumber, shipNumberText);
-        root.addRow(12, stockPlacement, stockPlacementText);
-        root.addRow(13, weight, weightText);
-        root.addRow(14, quantity, quantityText);
-        root.addRow(15, openCameraButton, openBarcodeScannerButton);
-        root.addRow(16, submit, refresh);
-        root.addRow(17, images);
+        // Weekdays
+        String etat[] =
+                {"Etat neuf", "Bon etat", "Mauvais etat"};
+
+        // Create a combo box
+        ComboBox combo_box =
+                new ComboBox(FXCollections
+                        .observableArrayList(etat));
+        // Label to display the selected menuitem
+        Label selected = new Label("default");
+
+        // Create action event
+        EventHandler<ActionEvent> event =
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e)
+                    {
+                        stateText = (String) combo_box.getValue();
+                        if (stateText == "Etat neuf"){
+                            EtatDuProduit.setText("Prix de vente HT coneillé pour un produit en très bon état: Maximum 75% du prix neuf");
+                        }if (stateText == "Bon etat"){
+                            EtatDuProduit.setText("Prix de vente HT coneillé pour un produit en bon état : Maximum 50% du prix neuf");
+                        }if (stateText == "Mauvais etat"){
+                            EtatDuProduit.setText("Prix de vente HT coneillé pour un produit en mauvais état : Maximum 25% du prix neuf");
+                        }
+                    }
+                };
+        final float advisedPrice;
+        PVPHTText.setOnAction(e -> {
+            float PVPHT_value = Integer.parseInt(PVPHTText.getText());
+            float Commission = (float) (PVPHT_value * 1.1);
+            float PVPTTC_value = (float) (Commission * 1.2);
+
+            PVPCommission.setText("Prix de vente HT avec commission : " + Commission + " (10%)");
+            PVPTTC.setText("Prix de vente TTC : " + PVPTTC_value + " (20%)");
+/*
+            if (stateText == "Etat neuf"){
+
+            } else if (stateText == "Bon etat"){
+
+            }else if (stateText == "Mauvais etat"){
+
+            }*/
+        });
+        // Set on action
+        combo_box.setOnAction(event);
+      //  PrixConseille.setText("Nous vous conseillons de vendre la pièce (HT) pour : " + advisedPrice);
+        Menu menu = new Menu("File");
+        MenuItem menuItem1 = new MenuItem("Exit");
+        menu.getItems().add(menuItem1);
+
+        Menu menu1 = new Menu("Options");
+
+        Menu subMenu = new Menu("Camera par défaut");
+
+        Menu PrinterSubMenu = new Menu("Imprimante par défaut");
+
+
+
+        ObservableList<Menus.WebCamInfo> Webcaminfos = Menus.defaultCamera();
+
+        RadioMenuItem choice1Item = new RadioMenuItem(Webcaminfos.get(0).toString());
+        RadioMenuItem choice2Item = new RadioMenuItem(Webcaminfos.get(1).toString());
+        RadioMenuItem choice3Item = new RadioMenuItem(Webcaminfos.get(2).toString());
+        RadioMenuItem choice4Item = new RadioMenuItem(Webcaminfos.get(3).toString());
+        RadioMenuItem choice5Item = new RadioMenuItem(Webcaminfos.get(4).toString());
+
+         for (int i = 0; i < Webcaminfos.size()-1; i++){
+
+            if ((" "  + Webcaminfos.get(i).toString()).equals(Webcam.getDefault().toString().replaceAll("Webcam", ""))){
+                if ((" " + choice1Item.getText()).equals(Webcam.getDefault().toString().replaceAll("Webcam", ""))){
+                    choice1Item.setSelected(true);
+                }
+                if ((" " + choice2Item.getText()).equals(Webcam.getDefault().toString().replaceAll("Webcam", ""))){
+                    choice2Item.setSelected(true);
+                }
+                if ((" " + choice3Item.getText()).equals(Webcam.getDefault().toString().replaceAll("Webcam", ""))){
+                    choice3Item.setSelected(true);
+                }
+                if ((" " + choice4Item.getText()).equals(Webcam.getDefault().toString().replaceAll("Webcam", ""))){
+                    choice4Item.setSelected(true);
+                }
+                if ((" " + choice5Item.getText()).equals(Webcam.getDefault().toString().replaceAll("Webcam", ""))){
+                    choice5Item.setSelected(true);
+                }
+            }
+        }
+
+        ToggleGroup toggleGroup = new ToggleGroup();
+        toggleGroup.getToggles().add(choice1Item);
+        toggleGroup.getToggles().add(choice2Item);
+        toggleGroup.getToggles().add(choice3Item);
+        toggleGroup.getToggles().add(choice4Item);
+        toggleGroup.getToggles().add(choice5Item);
+        subMenu.getItems().addAll(choice1Item, choice2Item, choice3Item, choice4Item, choice5Item);
+
+
+        subMenu.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override public void handle(ActionEvent e) {
+                RadioMenuItem selectedRadioButton = (RadioMenuItem) toggleGroup.getSelectedToggle();
+                String toogleGroupValue = selectedRadioButton.getText();
+                webcam = Webcam.getWebcamByName(toogleGroupValue);
+            }
+        });
+
+        MenuBar menuBar = new MenuBar();
+
+        menuBar.getMenus().addAll(menu, menu1);
+
+        menuItem1.setOnAction(e -> {
+            primaryStage.close();
+        });
+
+        PrintService[] printServices = PrintServiceLookup.lookupPrintServices(null, null);
+
+
+        RadioMenuItem choice6Item = new RadioMenuItem(printServices[0].toString());
+        RadioMenuItem choice7Item = new RadioMenuItem(printServices[1].toString());
+        RadioMenuItem choice8Item = new RadioMenuItem(printServices[2].toString());
+
+        ToggleGroup PrinterToggleGroup = new ToggleGroup();
+        PrinterToggleGroup.getToggles().add(choice6Item);
+        PrinterToggleGroup.getToggles().add(choice7Item);
+        PrinterToggleGroup.getToggles().add(choice8Item);
+
+        PrinterSubMenu.getItems().addAll(choice6Item, choice7Item, choice8Item);
+
+        for (int i = 0; i < printServices.length; i++){
+
+            if ((printServices[i].toString()).equals(PrintServiceLookup.lookupDefaultPrintService().toString())){
+                if ((choice6Item.getText()).equals(PrintServiceLookup.lookupDefaultPrintService().toString())){
+                    choice6Item.setSelected(true);
+                    printerChoosen = choice6Item.getText();
+                }
+                if ((choice7Item.getText()).equals(PrintServiceLookup.lookupDefaultPrintService().toString())){
+                    choice7Item.setSelected(true);
+                    printerChoosen = choice7Item.getText();
+                }
+                if ((choice8Item.getText()).equals(PrintServiceLookup.lookupDefaultPrintService().toString())){
+                    choice8Item.setSelected(true);
+                    printerChoosen = choice8Item.getText();
+                }
+            }
+        }
+
+        PrinterSubMenu.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override public void handle(ActionEvent e) {
+                RadioMenuItem selectedRadioButton = (RadioMenuItem) PrinterToggleGroup.getSelectedToggle();
+                String toogleGroupValue = selectedRadioButton.getText();
+                printerChoosen = toogleGroupValue;
+            }
+        });
+
+        menu1.getItems().addAll(subMenu, PrinterSubMenu);
+        final Tooltip tooltip = new Tooltip();
+        tooltip.setText("aled");
+        referenceText.setTooltip(tooltip);
+
+        root.addRow(0, menuBar);
+        root.addRow(2, reference, referenceText);
+        root.addRow(3, state, combo_box);
+        root.addRow(4, DescriptionState, DescriptionStateText);
+        root.addRow(5, color, colorText);
+        root.addRow(6, brand, brandText);
+        root.addRow(7, descriptionComplementaire, descriptionComplementaireText);
+        root.addRow(8, accessoire, accessoireText);
+        root.addRow(9, shipBrand, shipBrandText);
+        root.addRow(10, shipModel, shipModelText);
+        root.addRow(11, shipYear, shipYearText);
+        root.addRow(12, shipNumber, shipNumberText);
+        root.addRow(13, stockPlacement, stockPlacementText);
+        root.addRow(14, weight, weightText);
+        root.addRow(15, quantity, quantityText);
+        root.addRow(16, PVPHT, PVPHTText);
+        root.addRow(17, EtatDuProduit);
+        root.addRow(18, PVPCommission);
+        root.addRow(19, PVPTTC);
+        root.addRow(20, openCameraButton, openBarcodeScannerButton);
+        root.addRow(21, submit, refresh);
+        root.addRow(22, images);
+
 
 
 
@@ -359,7 +559,7 @@ public class Main extends Application {
                 }
         });
 
-        Scene scene = new Scene(hbox, 1000, 900, Color.WHITE);
+        Scene scene = new Scene(hbox, 1000, 1000, Color.WHITE);
         Label label = new Label("");
 
         removeImage.setOnAction(value -> {
@@ -414,7 +614,7 @@ public class Main extends Application {
         openBarcodeScannerButton.setOnAction(value -> {
             if (webcam != null) {
                 try {
-                    new barcodescanner();
+                    new barcodescanner(webcam);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -422,39 +622,25 @@ public class Main extends Application {
                 label.setText("No webcam detected");
             }
         });
-        openCameraButton.setOnAction(value -> {
-            while ((designationText.getText() == null || designationText.getText().trim().isEmpty())) {
-                designationText.setPromptText("Ce champ ne peut pas être vide");
-                return;
-            }
-            if (webcam != null) {
-                int i = 0;
-                try {
-                    String omg = Camera.Camera(designationText.getText());
 
-                    System.out.println(omg);
-                   //imageView.setImage(new Image(new FileInputStream("img_tmp/"+omg)));
-                    if (getAllImages(new File("img_tmp/"), false) == null) {
-                        System.out.println("no images");
-                    } else {
-                        String[] aled = getAllImages(new File("img_tmp/"), false).toArray(new String[0]);
-                        i++;
-                        System.out.println(i);
-
-                        /*Image image = new Image(new FileInputStream(aled[i]));
-
-                        imageView = new ImageView(image);
-                        imageView1 = new ImageView(image1);
-                        imageView2 = new ImageView(image2);*/
-                    }
-                } catch (IOException | InterruptedException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                label.setText("No webcam detected");
-            }
+        imageView.setOnMouseClicked( event2 -> {
+            takePhoto(designationText, webcam);
         });
-
+        imageView1.setOnMouseClicked( event2 -> {
+            takePhoto(designationText, webcam);
+        });
+        imageView2.setOnMouseClicked( event2 -> {
+            takePhoto(designationText, webcam);
+        });
+        imageView3.setOnMouseClicked( event2 -> {
+            takePhoto(designationText, webcam);
+        });
+        imageView4.setOnMouseClicked( event2 -> {
+            takePhoto(designationText, webcam);
+        });
+        imageView5.setOnMouseClicked( event2 -> {
+            takePhoto(designationText, webcam);
+        });
 
         primaryStage.getIcons().add(new Image("file:img_static/captainchercheur.png"));
         primaryStage.setScene(scene);
@@ -478,6 +664,31 @@ public class Main extends Application {
             return resultList;
         else
             return null;
+    }
+    public static void takePhoto (TextField designationText, Webcam webcam){
+        while ((designationText.getText() == null || designationText.getText().trim().isEmpty())) {
+            designationText.setPromptText("Ce champ ne peut pas être vide");
+            return;
+        }
+        if (webcam != null) {
+            int i = 0;
+            try {
+                String omg = Camera.Camera(designationText.getText(), webcam);
+
+                if (getAllImages(new File("img_tmp/"), false) == null) {
+                    System.out.println("no images");
+                } else {
+                    String[] aled = getAllImages(new File("img_tmp/"), false).toArray(new String[0]);
+                    i++;
+                    System.out.println(i);
+
+                }
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Alerte mon général");
+        }
     }
 
 
