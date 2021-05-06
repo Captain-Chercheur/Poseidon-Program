@@ -484,11 +484,7 @@ public class Main extends Application {
         }
 
         ToggleGroup toggleGroup = new ToggleGroup();
-        toggleGroup.getToggles().add(choice1Item);
-        toggleGroup.getToggles().add(choice2Item);
-        toggleGroup.getToggles().add(choice3Item);
-        toggleGroup.getToggles().add(choice4Item);
-        toggleGroup.getToggles().add(choice5Item);
+        toggleGroup.getToggles().addAll(choice1Item, choice2Item, choice3Item, choice4Item, choice5Item);
         subMenu.getItems().addAll(choice1Item, choice2Item, choice3Item, choice4Item, choice5Item);
 
 

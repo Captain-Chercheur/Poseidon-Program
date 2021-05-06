@@ -90,7 +90,7 @@ def get_storage(storage):
             yield {storage}
 
 
-def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionText, nic, quantity, accessoire, descriptionComplementaire):
+def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionText, nic, quantity, accessoire, descriptionComplementaire, ImageDirectory):
     ''' return (yield) the forecasts found in the database
     . if filter is provided, yield only those forecasts from the provided user
     . sort is provided to sort the selected forecasts
@@ -98,23 +98,23 @@ def put_metas(designation, state, color, brand, model, year, storage, weight, ba
     with connectBase() as coon:
         c = coon.cursor()
         if not reference:
-            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionText, quantities, accessoire, descriptionComplementaire) 
-                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{reference}','{descriptionText}','{quantity}','{accessoire}', '{descriptionComplementaire}'); ''')
+            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionText, quantities, accessoire, descriptionComplementaire, ImageDirectory) 
+                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{reference}','{descriptionText}','{quantity}','{accessoire}', '{descriptionComplementaire}', '{ImageDirectory}'); ''')
         if not nic:
             c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, nic, descriptionText, quantities, accessoire, descriptionComplementaire) 
-                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{nic}', '{descriptionText}','{quantity}','{accessoire}', '{descriptionComplementaire}'); ''')
+                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{nic}', '{descriptionText}','{quantity}','{accessoire}', '{descriptionComplementaire}, '{ImageDirectory}''); ''')
         if reference and nic:
             c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, nic, reference,descriptionText, quantities, accessoire, descriptionComplementaire) 
-                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{nic}', '{reference}', '{descriptionText}','{quantity}','{accessoire}', '{descriptionComplementaire}'); ''')
+                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{nic}', '{reference}', '{descriptionText}','{quantity}','{accessoire}', '{descriptionComplementaire}, '{ImageDirectory}''); ''')
         if not reference and nic:
             c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode,descriptionText, quantities, accessoire, descriptionComplementaire) 
-                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', {descriptionText},'{quantity}','{accessoire}', '{descriptionComplementaire}'); ''')
+                    VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', {descriptionText},'{quantity}','{accessoire}', '{descriptionComplementaire}', '{ImageDirectory}'); ''')
 
         rows = c.fetchall()
 
         for Products in rows:
-            print(designation, state, color, brand, model, year, storage, weight, barcode, descriptionText,quantity, accessoire, descriptionComplementaire)
-            yield designation, state, color, brand, model, year, storage, weight, barcode, descriptionText,quantity, accessoire, descriptionComplementaire
+            print(designation, state, color, brand, model, year, storage, weight, barcode, descriptionText,quantity, accessoire, descriptionComplementaire, ImageDirectory)
+            yield designation, state, color, brand, model, year, storage, weight, barcode, descriptionText,quantity, accessoire, descriptionComplementaire, ImageDirectory
 
 
 def new_shelf(barcode, storage, designation, quantity):

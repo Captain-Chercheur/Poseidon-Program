@@ -69,8 +69,8 @@ async def get_product(product: str):
 
 
 @app.get(
-    "/put_metas/{designation}/{state}/{color}/{brand}/{model}/{year}/{storage}/{weight}/{barcode}/{descriptionText}/{reference}/{nic}/{quantity}/{accessoire}/{descriptionComplementaire}")
-def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, descriptionText,quantity, accessoire, descriptionComplementaire,
+    "/put_metas/{designation}/{state}/{color}/{brand}/{model}/{year}/{storage}/{weight}/{barcode}/{descriptionText}/{reference}/{nic}/{quantity}/{accessoire}/{descriptionComplementaire}/{ImageDirectory}")
+def put_metas(designation, state, color, brand, model, year, storage, weight, barcode, descriptionText,quantity, accessoire, descriptionComplementaire,ImageDirectory,
               reference: Optional[str], nic: Optional[str]):
     '''**Patient**
     Create new patientss
@@ -82,7 +82,7 @@ def put_metas(designation, state, color, brand, model, year, storage, weight, ba
     state -> 0=sick, 1->dead, 2->cured
 '''
     return database.put_metas(designation, state, color, brand, model, year, storage, weight, barcode, reference,
-                              descriptionText, nic, quantity, accessoire, descriptionComplementaire,)
+                              descriptionText, nic, quantity, accessoire, descriptionComplementaire,ImageDirectory)
 
 
 @app.get("/get_id/")
@@ -197,6 +197,20 @@ async def check_product_waiting(id):
     state -> 0=sick, 1->dead, 2->cured
 '''
     return database.check_product_waiting(id)\
+
+
+@app.get("/get_product_storage/{barcode}")
+async def get_product_storage(barcode):
+    '''**Patient**
+    Create new patient
+    Exemple :
+    /Patients/?id=1587852?room=1?state=0?madicine=Moderna
+
+    id -> Social Security number
+    room -> Room where the patient will stay for the week
+    state -> 0=sick, 1->dead, 2->cured
+'''
+    return database.check_product_waiting(barcode)\
 
 
 @app.get("/get_product_storage/{barcode}")
