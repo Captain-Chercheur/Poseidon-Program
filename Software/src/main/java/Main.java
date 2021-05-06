@@ -1,41 +1,39 @@
 import com.github.sarxos.webcam.Webcam;
-import com.github.sarxos.webcam.WebcamDevice;
-import com.github.sarxos.webcam.ds.buildin.WebcamDefaultDevice;
-import com.thoughtworks.qdox.builder.impl.EvaluatingVisitor;
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.event.EventTarget;
-import javafx.print.Printer;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.apache.tools.ant.Project;
 
-import javax.print.DocFlavor;
 import javax.print.PrintService;
-import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.atomic.AtomicReference;
 import javax.print.PrintServiceLookup;
 
 
@@ -48,39 +46,43 @@ public class Main extends Application {
 
     public static void main(String[] args) { Application.launch(args); }
 
+
+    private final Desktop desktop = Desktop.getDesktop();
+
+
     public final Label designation = new Label("Désignation de la pièce*");
-    private TextField designationText = new TextField();
+    private final TextField designationText = new TextField();
     private final Label reference = new Label("Référence du produit");
-    private TextField referenceText = new TextField();
+    private final TextField referenceText = new TextField();
     private final Label state = new Label("Etat de la pièce*");
     String stateText;
     private final Label DescriptionState = new Label("Description de l'état de la pièce*");
-    private TextField DescriptionStateText = new TextField();
+    private final TextField DescriptionStateText = new TextField();
     private final Label color = new Label("Couleur de la pièce*");
-    private TextField colorText = new TextField();
+    private final TextField colorText = new TextField();
     private final Label brand = new Label("Marque de la pièce");
-    private TextField brandText = new TextField();
+    private final TextField brandText = new TextField();
     private final Label shipBrand = new Label("Marque du bateau de provenance*");
-    private TextField shipBrandText = new TextField();
+    private final TextField shipBrandText = new TextField();
     private final Label shipModel = new Label("Model du bateau de provenance*");
-    private TextField shipModelText = new TextField();
+    private final TextField shipModelText = new TextField();
     private final Label shipYear = new Label("Année du bateau de provenance");
-    private TextField shipYearText = new TextField();
+    private final TextField shipYearText = new TextField();
     private final Label shipNumber = new Label("Numéro de série du bateau (NIC)");
-    private TextField shipNumberText = new TextField();
+    private final TextField shipNumberText = new TextField();
     private final Label weight = new Label("Poids de la pièce (en gramme) *");
-    private TextField weightText = new TextField();
+    private final TextField weightText = new TextField();
     private final Label stockPlacement = new Label("Emplacement de stockage de la pièce*");
-    private TextField stockPlacementText = new TextField();
+    private final TextField stockPlacementText = new TextField();
     private final Label quantity = new Label("Quantité*");
-    private TextField quantityText = new TextField();
+    private final TextField quantityText = new TextField();
     private final Label accessoire = new Label("Accessoires fournies");
-    private TextField accessoireText = new TextField();
+    private final TextField accessoireText = new TextField();
     private final Label descriptionComplementaire = new Label("Description complémentaire*");
-    private TextField descriptionComplementaireText = new TextField();
+    private final TextField descriptionComplementaireText = new TextField();
 
     private final Label PVPHT = new Label("Prix de vente HT (presse enter)* : ");
-    private TextField PVPHTText = new TextField();
+    private final TextField PVPHTText = new TextField();
     private final Label PVPCommission  = new Label("Prix de vente HT avec commission : ");
     private final Label PVPTTC = new Label("Prix de vente TTC : ");
     private final Label PrixConseille = new Label("Prix de vente HT coneillé : ");
@@ -154,21 +156,34 @@ public class Main extends Application {
 
 
     Image crossImage = new Image(new FileInputStream("img_static/red-cross.png"));
+    Image takeFileImage = new Image(new FileInputStream("img_static/open-file-folder.png"));
+    Image helpImage = new Image(new FileInputStream("img_static/question_mark.png"));
 
 
-    private static ImageView imageView = new ImageView(image);
-    private static ImageView imageView1 = new ImageView(image1);
-    private static ImageView imageView2 = new ImageView(image2);
-    private static ImageView imageView3 = new ImageView(image3);
-    private static ImageView imageView4 = new ImageView(image4);
-    private static ImageView imageView5 = new ImageView(image5);
+    private static final ImageView imageView = new ImageView(image);
+    private static final ImageView imageView1 = new ImageView(image1);
+    private static final ImageView imageView2 = new ImageView(image2);
+    private static final ImageView imageView3 = new ImageView(image3);
+    private static final ImageView imageView4 = new ImageView(image4);
+    private static final ImageView imageView5 = new ImageView(image5);
 
-    private ImageView crossImageView = new ImageView(crossImage);
-    private ImageView crossImageView1 = new ImageView(crossImage);
-    private ImageView crossImageView2 = new ImageView(crossImage);
-    private ImageView crossImageView3 = new ImageView(crossImage);
-    private ImageView crossImageView4 = new ImageView(crossImage);
-    private ImageView crossImageView5 = new ImageView(crossImage);
+    private final ImageView crossImageView = new ImageView(crossImage);
+    private final ImageView crossImageView1 = new ImageView(crossImage);
+    private final ImageView crossImageView2 = new ImageView(crossImage);
+    private final ImageView crossImageView3 = new ImageView(crossImage);
+    private final ImageView crossImageView4 = new ImageView(crossImage);
+    private final ImageView crossImageView5 = new ImageView(crossImage);
+
+    private final ImageView takeFileImageView = new ImageView(takeFileImage);
+    private final ImageView takeFileImageView1 = new ImageView(takeFileImage);
+    private final ImageView takeFileImageView2 = new ImageView(takeFileImage);
+    private final ImageView takeFileImageView3 = new ImageView(takeFileImage);
+    private final ImageView takeFileImageView4 = new ImageView(takeFileImage);
+    private final ImageView takeFileImageView5 = new ImageView(takeFileImage);
+
+    private final ImageView helpImageView = new ImageView(helpImage);
+    private final ImageView helpImageView2 = new ImageView(helpImage);
+
 
     Button openCameraButton = new Button("Take picture");
     Button openBarcodeScannerButton = new Button("Read barcode");
@@ -178,6 +193,13 @@ public class Main extends Application {
     Hyperlink removeImage3 = new Hyperlink();
     Hyperlink removeImage4 = new Hyperlink();
     Hyperlink removeImage5 = new Hyperlink();
+    Hyperlink FileImage = new Hyperlink();
+    Hyperlink FileImage1 = new Hyperlink();
+    Hyperlink FileImage2 = new Hyperlink();
+    Hyperlink FileImage3 = new Hyperlink();
+    Hyperlink FileImage4 = new Hyperlink();
+    Hyperlink FileImage5 = new Hyperlink();
+
 
     static boolean picture = false;
     static boolean picture1 = false;
@@ -214,6 +236,7 @@ public class Main extends Application {
             cpt = 0;
         }
     }
+
     String selectedItem = null;
     Webcam webcam = Webcam.getDefault();
     String printerChoosen = PrintServiceLookup.lookupDefaultPrintService().toString();
@@ -225,7 +248,8 @@ public class Main extends Application {
 
         GridPane root = new GridPane();
 
-        Group images = new Group(imageView, imageView1, imageView2,imageView3, imageView4, imageView5, removeImage, removeImage1, removeImage2, removeImage3, removeImage4, removeImage5, faceAvant, faceArrière, faceGauche,faceDroite, faceDessous, faceDessus);
+        Group images = new Group(imageView, imageView1, imageView2,imageView3, imageView4, imageView5, removeImage, removeImage1, removeImage2, removeImage3, removeImage4, removeImage5, faceAvant, faceArrière, faceGauche,faceDroite, faceDessous, faceDessus,
+                FileImage,FileImage1,FileImage2,FileImage3,FileImage4,FileImage5);
 
         removeImage.setGraphic(crossImageView);
         removeImage1.setGraphic(crossImageView1);
@@ -233,6 +257,15 @@ public class Main extends Application {
         removeImage3.setGraphic(crossImageView3);
         removeImage4.setGraphic(crossImageView4);
         removeImage5.setGraphic(crossImageView5);
+
+        FileImage.setGraphic(takeFileImageView);
+        FileImage1.setGraphic(takeFileImageView1);
+        FileImage2.setGraphic(takeFileImageView2);
+        FileImage3.setGraphic(takeFileImageView3);
+        FileImage4.setGraphic(takeFileImageView4);
+        FileImage5.setGraphic(takeFileImageView5);
+
+
 
         imageView.setFitHeight(150);
         imageView.setFitWidth(250);
@@ -273,6 +306,19 @@ public class Main extends Application {
         removeImage5.setLayoutX(500);
         removeImage5.setLayoutY(220);
 
+        FileImage.setLayoutX(230);
+        FileImage.setLayoutY(20);
+        FileImage1.setLayoutX(480);
+        FileImage1.setLayoutY(20);
+        FileImage2.setLayoutX(730);
+        FileImage2.setLayoutY(20);
+        FileImage3.setLayoutX(230);
+        FileImage3.setLayoutY(220);
+        FileImage4.setLayoutX(480);
+        FileImage4.setLayoutY(220);
+        FileImage5.setLayoutX(730);
+        FileImage5.setLayoutY(220);
+
         faceAvant.setLayoutX(0);
         faceAvant.setLayoutY(0);
         faceArrière.setLayoutX(250);
@@ -288,7 +334,7 @@ public class Main extends Application {
 
         root.addRow(1, designation, designationText);
         Button submit = new Button("Submit");
-        Button refresh = new Button("Change quantities");
+        Button ChangeQuantities = new Button("Change quantities");
         submit.setOnAction(value -> {
             while(designationText.getText() == null || designationText.getText().trim().isEmpty() || colorText.getText() == null || colorText.getText().trim().isEmpty() || shipBrandText.getText() == null || shipBrandText.getText().trim().isEmpty() ||
                     shipModelText.getText() == null || weightText.getText() == null || weightText.getText().trim().isEmpty() ||
@@ -311,16 +357,16 @@ public class Main extends Application {
 
 
                         for (int i=0; i < Integer.parseInt(quantityText.getText()); i++){
-                            String id = HTMLrequests.HTMLrequests("get_id/").toString().replaceAll("(^\\[|\\]$)", "");
-                            id= id.toString().replaceAll("(^\\[|\\]$)", "");
-                            id = id.toString().replaceAll("(^\\[|\\]$)", "");
+                            String id = HTMLrequests.HTMLrequests("get_id/").replaceAll("(^\\[|\\]$)", "");
+                            id= id.replaceAll("(^\\[|\\]$)", "");
+                            id = id.replaceAll("(^\\[|\\]$)", "");
                             int id_int = Integer.parseInt(id);
                             id_int = id_int+1;
                             shelf.quantity.adding_quantity(stockPlacementText.getText(), quantityText.getText());
                             String barcodeName = barcode.barcode(designationText.getText().toUpperCase(Locale.ROOT).charAt(0), stockPlacementText.getText());
                             String barcodeFileName = "barcodes/" + barcodeName;
                             System.out.println("Creating barcode...");
-                            
+
 
                             imageProcess.imageProcess(designationText.getText(), selectedItem, shipBrandText.getText(), shipModelText.getText(), shipYearText.getText(), colorText.getText(), weightText.getText(), stockPlacementText.getText(), barcodeFileName);
                             System.out.println("Processing image...");
@@ -355,20 +401,17 @@ public class Main extends Application {
         descriptionComplementaireText.setPromptText("Poulie simple pour palen");
         descriptionComplementaireText.setPromptText("Poulie simple pour palen");
         descriptionComplementaireText.setPromptText("Poulie simple pour palen");
+        accessoireText.setPromptText("Cable Pour écran");
 
-        // Create a label
-        Label description_label =
-                new Label("This is a combo box example ");
-
-        // Weekdays
-        String etat[] =
+        // States
+        String[] etat =
                 {"Etat neuf", "Bon etat", "Mauvais etat"};
 
         // Create a combo box
         ComboBox combo_box =
                 new ComboBox(FXCollections
                         .observableArrayList(etat));
-        // Label to display the selected menuitem
+        // Label to display the selected menuItem
         Label selected = new Label("default");
 
         // Create action event
@@ -394,23 +437,16 @@ public class Main extends Application {
 
             PVPCommission.setText("Prix de vente HT avec commission : " + Commission + " (10%)");
             PVPTTC.setText("Prix de vente TTC : " + PVPTTC_value + " (20%)");
-/*
-            if (stateText == "Etat neuf"){
-
-            } else if (stateText == "Bon etat"){
-
-            }else if (stateText == "Mauvais etat"){
-
-            }*/
         });
+
         // Set on action
         combo_box.setOnAction(event);
-      //  PrixConseille.setText("Nous vous conseillons de vendre la pièce (HT) pour : " + advisedPrice);
+        // PrixConseille.setText("Nous vous conseillons de vendre la pièce (HT) pour : " + advisedPrice);
         Menu menu = new Menu("File");
         MenuItem menuItem1 = new MenuItem("Exit");
         menu.getItems().add(menuItem1);
 
-        Menu menu1 = new Menu("Options");
+        Menu menu1 = new Menu("Préférences");
 
         Menu subMenu = new Menu("Camera par défaut");
 
@@ -516,8 +552,20 @@ public class Main extends Application {
 
         menu1.getItems().addAll(subMenu, PrinterSubMenu);
         final Tooltip tooltip = new Tooltip();
-        tooltip.setText("aled");
-        referenceText.setTooltip(tooltip);
+        final Tooltip tooltip2 = new Tooltip();
+        tooltip.setText("Prix avec commission : 10%");
+        tooltip2.setText("Prix avec taxes : 20%");
+
+        helpImageView.setImage(helpImage);
+
+        Tooltip.install(helpImageView, new Tooltip("Prix avec commission : 10%"));
+        helpImageView.setLayoutX(235);
+        Group PVPCommissionGroup = new Group(PVPCommission, helpImageView);
+
+        Tooltip.install(helpImageView2, new Tooltip("Prix avec taxes : 20%"));
+        helpImageView2.setLayoutX(130);
+        Group PVPTTCGroup = new Group(PVPTTC, helpImageView2);
+
 
         root.addRow(0, menuBar);
         root.addRow(2, reference, referenceText);
@@ -536,19 +584,20 @@ public class Main extends Application {
         root.addRow(15, quantity, quantityText);
         root.addRow(16, PVPHT, PVPHTText);
         root.addRow(17, EtatDuProduit);
-        root.addRow(18, PVPCommission);
-        root.addRow(19, PVPTTC);
+        root.addRow(18, PVPCommissionGroup);
+        root.addRow(19, PVPTTCGroup);
         root.addRow(20, openCameraButton, openBarcodeScannerButton);
-        root.addRow(21, submit, refresh);
+        root.addRow(21, submit, ChangeQuantities);
         root.addRow(22, images);
 
 
+        root.setAlignment(Pos.TOP_CENTER);
 
 
 
         HBox hbox = new HBox(root);
 
-        refresh.setOnMouseClicked(new EventHandler<Event>() {
+        ChangeQuantities.setOnMouseClicked(new EventHandler<Event>() {
             @Override
             public void handle(Event arg0) {
                 try {
@@ -558,6 +607,7 @@ public class Main extends Application {
                 }
                 }
         });
+
 
         Scene scene = new Scene(hbox, 1000, 1000, Color.WHITE);
         Label label = new Label("");
@@ -610,6 +660,52 @@ public class Main extends Application {
                 e.printStackTrace();
             }
         });
+
+
+        FileImage.setOnAction(value -> {
+            try {
+                imageView.setImage(new Image((new FileInputStream(openFile()))));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+
+        FileImage1.setOnAction(value -> {
+            try {
+                imageView1.setImage(new Image((new FileInputStream(openFile()))));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+        FileImage2.setOnAction(value -> {
+            try {
+                imageView2.setImage(new Image((new FileInputStream(openFile()))));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+        FileImage3.setOnAction(value -> {
+            try {
+                imageView3.setImage(new Image((new FileInputStream(openFile()))));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+        FileImage4.setOnAction(value -> {
+            try {
+                imageView4.setImage(new Image((new FileInputStream(openFile()))));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+        FileImage5.setOnAction(value -> {
+            try {
+                imageView5.setImage(new Image((new FileInputStream(openFile()))));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+
 
         openBarcodeScannerButton.setOnAction(value -> {
             if (webcam != null) {
@@ -691,5 +787,13 @@ public class Main extends Application {
         }
     }
 
+    private String openFile() {
+        FileChooser fileChooser = new FileChooser();
+        File selectedFile = fileChooser.showOpenDialog(null);
+        System.out.println(selectedFile.getAbsolutePath());
+
+
+        return selectedFile.getAbsolutePath();
+    }
 
 }

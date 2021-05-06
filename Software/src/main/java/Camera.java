@@ -47,6 +47,7 @@ public class Camera {
                 try {
                     BufferedImage image = webcam.getImage();
                     ImageIO.write(image, "PNG", new File("img_tmp/" + designation + "-" + dtf.format(now) + ".png"));
+                    saveImagesDatabase.whenUploadFileUsingJsch_thenSuccess(designation + "-" + dtf.format(now) + ".png");
                     window.dispose();
                     webcam.close();
                     System.out.println("Frame Closed.");
