@@ -14,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -26,13 +25,8 @@ import javafx.stage.Stage;
 
 import javax.print.PrintService;
 import java.awt.*;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Paths;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 import javax.print.PrintServiceLookup;
 
@@ -55,7 +49,7 @@ public class Main extends Application {
     private final Label reference = new Label("Référence du produit");
     private final TextField referenceText = new TextField();
     private final Label state = new Label("Etat de la pièce*");
-    String stateText;
+
     private final Label DescriptionState = new Label("Description de l'état de la pièce*");
     private final TextField DescriptionStateText = new TextField();
     private final Label color = new Label("Couleur de la pièce*");
@@ -240,7 +234,8 @@ public class Main extends Application {
     String selectedItem = null;
     Webcam webcam = Webcam.getDefault();
     String printerChoosen = PrintServiceLookup.lookupDefaultPrintService().toString();
-
+    String selected= "";
+    String stateText = "";
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -332,6 +327,38 @@ public class Main extends Application {
         faceDessus.setLayoutX(500);
         faceDessus.setLayoutY(200);
 
+        // States
+        String[] etat =
+                {"Etat neuf", "Bon etat", "Mauvais etat"};
+        // Create a combo box
+        ComboBox<String> combo_box =
+                new ComboBox<>(FXCollections
+                        .observableArrayList(etat));
+
+
+
+        combo_box.setOnAction((event) -> {
+            int selectedIndex = combo_box.getSelectionModel().getSelectedIndex();
+            Object selectedItem = combo_box.getSelectionModel().getSelectedItem();
+            selected = (String) selectedItem;
+            System.out.println(selected);
+        });
+
+        EventHandler<ActionEvent> event =
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e)
+                    {
+                        stateText = combo_box.getValue();
+                        System.out.println("test" + stateText);
+                        if (stateText.equals("Etat neuf")){
+                            EtatDuProduit.setText("Prix de vente HT coneillé pour un produit en très bon état: Maximum 75% du prix neuf");
+                        }if (stateText.equals("Bon etat")){
+                        EtatDuProduit.setText("Prix de vente HT coneillé pour un produit en bon état : Maximum 50% du prix neuf");
+                    }if (stateText.equals("Mauvais etat")){
+                        EtatDuProduit.setText("Prix de vente HT coneillé pour un produit en mauvais état : Maximum 25% du prix neuf");
+                    }
+                    }
+                };
         root.addRow(1, designation, designationText);
         Button submit = new Button("Submit");
         Button ChangeQuantities = new Button("Change quantities");
@@ -355,7 +382,6 @@ public class Main extends Application {
                         }
 
 
-
                         for (int i=0; i < Integer.parseInt(quantityText.getText()); i++){
                             String id = HTMLrequests.HTMLrequests("get_id/").replaceAll("(^\\[|\\]$)", "");
                             id= id.replaceAll("(^\\[|\\]$)", "");
@@ -368,12 +394,17 @@ public class Main extends Application {
                             System.out.println("Creating barcode...");
 
 
-                            imageProcess.imageProcess(designationText.getText(), selectedItem, shipBrandText.getText(), shipModelText.getText(), shipYearText.getText(), colorText.getText(), weightText.getText(), stockPlacementText.getText(), barcodeFileName);
+                            imageProcess.imageProcess(designationText.getText(), selected, shipBrandText.getText(), shipModelText.getText(), shipYearText.getText(), colorText.getText(), weightText.getText(), stockPlacementText.getText(), barcodeFileName);
                             System.out.println("Processing image...");
                             BarcodePrinter.BarcodePrinter(barcodeFileName, printerChoosen);
                             System.out.println("Printing image...");
-                            String metas = "put_metas/" + designationText.getText() + "/" + stateText + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
-                                    shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/" + DescriptionStateText.getText() + "/%20"+"/%20/" + quantityText.getText() + "/" + accessoireText.getText() + "/" + descriptionComplementaireText.getText();
+                            String AllImages = "";
+                            for (int j = 0; j < saveImagesDatabase.AllImages.size(); j++){
+                                AllImages = saveImagesDatabase.getAllImages().toString().replaceAll(" ", "").replaceAll(",", "-");
+
+                            }
+                            String metas = "put_metas/" + designationText.getText() + "/" + selected + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
+                                    shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/" + DescriptionStateText.getText() + "/%20"+"/%20/" + quantityText.getText() + "/" + accessoireText.getText() + "/" + descriptionComplementaireText.getText() + "/\"" + AllImages + "\"";
                             HTMLrequests.HTMLrequests(metas);
 
                             shelf.quantity.waiting_shelving(primaryStage, stockPlacementText.getText(), id_int, 1);
@@ -403,33 +434,9 @@ public class Main extends Application {
         descriptionComplementaireText.setPromptText("Poulie simple pour palen");
         accessoireText.setPromptText("Cable Pour écran");
 
-        // States
-        String[] etat =
-                {"Etat neuf", "Bon etat", "Mauvais etat"};
 
-        // Create a combo box
-        ComboBox combo_box =
-                new ComboBox(FXCollections
-                        .observableArrayList(etat));
-        // Label to display the selected menuItem
-        Label selected = new Label("default");
 
-        // Create action event
-        EventHandler<ActionEvent> event =
-                new EventHandler<ActionEvent>() {
-                    public void handle(ActionEvent e)
-                    {
-                        stateText = (String) combo_box.getValue();
-                        if (stateText == "Etat neuf"){
-                            EtatDuProduit.setText("Prix de vente HT coneillé pour un produit en très bon état: Maximum 75% du prix neuf");
-                        }if (stateText == "Bon etat"){
-                            EtatDuProduit.setText("Prix de vente HT coneillé pour un produit en bon état : Maximum 50% du prix neuf");
-                        }if (stateText == "Mauvais etat"){
-                            EtatDuProduit.setText("Prix de vente HT coneillé pour un produit en mauvais état : Maximum 25% du prix neuf");
-                        }
-                    }
-                };
-        final float advisedPrice;
+
         PVPHTText.setOnAction(e -> {
             float PVPHT_value = Integer.parseInt(PVPHTText.getText());
             float Commission = (float) (PVPHT_value * 1.1);
@@ -439,8 +446,7 @@ public class Main extends Application {
             PVPTTC.setText("Prix de vente TTC : " + PVPTTC_value + " (20%)");
         });
 
-        // Set on action
-        combo_box.setOnAction(event);
+
         // PrixConseille.setText("Nous vous conseillons de vendre la pièce (HT) pour : " + advisedPrice);
         Menu menu = new Menu("File");
         MenuItem menuItem1 = new MenuItem("Exit");
@@ -664,6 +670,7 @@ public class Main extends Application {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+
         });
 
         FileImage1.setOnAction(value -> {
@@ -717,6 +724,7 @@ public class Main extends Application {
 
         imageView.setOnMouseClicked( event2 -> {
             takePhoto(designationText, webcam);
+            saveImagesDatabase.getAllImages();
         });
         imageView1.setOnMouseClicked( event2 -> {
             takePhoto(designationText, webcam);
@@ -737,6 +745,7 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("file:img_static/captainchercheur.png"));
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
     public static ArrayList<String> getAllImages(File directory, boolean descendIntoSubDirectories) throws IOException {
         ArrayList<String> resultList = new ArrayList<String>(256);

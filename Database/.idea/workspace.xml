@@ -2,29 +2,188 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Database">
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/daz-15:07:14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/daz-15:14:05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/daz-15:14:09.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/daz-15:14:12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazd-15:05:22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazd-15:05:26.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazd-15:05:29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazd-15:06:47.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazd-15:08:31.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazd-15:08:34.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-14:59:02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-14:59:06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdza-15:04:44.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-15:09:01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzdadaz-15:10:17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/sdzad-15:07:36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-122-156zad" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-122-99L" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-122-azdza" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-122-azf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-122-azf-combined.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-122-dzad" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-122-fza5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-122-nfgn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-122-tyk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/F-122-fzaf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/G-122-gdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/J-122-htrfh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/J-122-kuhjkjhkuk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/L-122-yliliu" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/barcodes/L-122-yliliu-combined.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/bds-15:39:00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/daz-15:32:21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/daz-15:32:28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/daz-15:32:38.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/daz-15:33:15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/daz-15:33:18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/daz-15:33:21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazd-16:36:23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazd-16:36:26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazd-16:36:29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazd-16:36:32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazd-16:36:35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazd-16:36:39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-09:12:13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-09:12:16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-09:12:18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-09:12:21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-09:12:24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-09:12:27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-09:31:55.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-09:31:58.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-09:32:00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-09:32:03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-09:32:06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-09:32:10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-15:23:51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-15:23:54.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-15:24:02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-15:24:05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-15:24:10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-15:24:15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-15:28:18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-16:28:06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-16:28:09.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-16:28:12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-16:28:15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-16:28:17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdaz-16:28:20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdza-09:06:21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdza-09:06:24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdza-09:06:27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdza-09:06:30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdza-09:06:33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdza-09:06:35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdza-15:28:51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdzad-16:46:11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdzad-16:46:14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdzad-16:46:17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdzad-16:46:20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdzad-16:46:25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dazdzad-16:46:29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/ddazz-16:03:35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/ddazz-16:03:54.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/ddazz-16:03:57.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/ddazz-16:04:00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/ddazz-16:04:05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/ddazz-16:04:08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dfazdaz-15:27:42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dfazdaz-15:27:45.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dza-15:25:08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dza-15:25:11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dza-15:25:14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dza-15:25:18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dza-15:25:22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dza-15:25:25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dza-15:25:29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzad-15:34:26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzad-15:34:32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzad-15:34:54.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzad-15:34:57.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzad-15:35:00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzad-15:35:02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-09:04:16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-09:04:19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-09:04:22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-09:04:37.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-09:04:41.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-09:04:43.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-15:29:34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-15:29:37.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-15:47:44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-15:47:47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-15:47:51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-15:47:58.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-15:48:05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-16:05:44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-16:05:47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-16:05:49.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-16:05:52.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-16:05:54.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadaz-16:05:59.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadazdza-16:41:34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadazdza-16:41:36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadazdza-16:41:39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadazdza-16:41:44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadazdza-16:41:47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadazdza-16:41:49.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadfgbfg-16:54:28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadfgbfg-16:54:31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadfgbfg-16:54:34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadfgbfg-16:54:37.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadfgbfg-16:54:40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/dzadfgbfg-16:54:43.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/fczadz-16:31:36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/fczadz-16:31:39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/fczadz-16:31:42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/fczadz-16:31:49.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/fczadz-16:32:07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/fczadz-16:32:17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/fezf-17:02:17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/fezf-17:02:20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/fezf-17:02:23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/fezf-17:02:25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/fezf-17:02:28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/greg-16:57:34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/greg-16:57:36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/greg-16:57:56.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/greg-16:57:59.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/greg-16:58:02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/greg-16:58:04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/greg-16:58:07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/jhkjhkhj-17:00:05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/jhkjhkhj-17:00:09.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/jhkjhkhj-17:00:12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/jhkjhkhj-17:00:15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/jhkjhkhj-17:00:22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/jhkjhkhj-17:00:25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/jtrjrtjtrj-16:50:05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/jtrjrtjtrj-16:50:08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/jtrjrtjtrj-16:50:11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/jtrjrtjtrj-16:50:16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/jtrjrtjtrj-16:50:18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/jtrjrtjtrj-16:50:21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/sadazdaz-15:45:22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/da-41-azdza" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/da-41-azdza-combined.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/da-43-99L" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/da-43-99L-combined.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/da-45-dzad" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/da-45-dzad-combined.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/dd-40-dza" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/dd-40-dza-combined.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/dz-39-18" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/dz-39-18-combined.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/dz-44-dazd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/dz-44-dazd-combined.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/fc-42-fzaf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/fc-42-fzaf-combined.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/jt-46-htrfh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/jt-46-htrfh-combined.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/Main$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/Main$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/Menus$WebCamInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/Menus.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/saveImagesDatabase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Software/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Software/src/main/java/saveImagesDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/saveImagesDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/shelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Camera.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Main$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/classes/shelf$quantity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/shelf$quantity$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/classes/shelf$quantity$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/shelf$quantity$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/classes/shelf$quantity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/shelf$quantity.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +243,11 @@
       <workItem from="1619683402954" duration="120000" />
       <workItem from="1619772605005" duration="3230000" />
       <workItem from="1619790823146" duration="43000" />
-      <workItem from="1620301632723" duration="1404000" />
+      <workItem from="1620301632723" duration="2055000" />
+      <workItem from="1620311116286" duration="599000" />
+      <workItem from="1620314885033" duration="6000" />
+      <workItem from="1620314905327" duration="27000" />
+      <workItem from="1620370854115" duration="709000" />
     </task>
     <task id="LOCAL-00001" summary="Database creation and py program to access it via web">
       <created>1619000443889</created>
@@ -387,7 +550,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619775222423</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Database">
+      <created>1620307124083</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1620307124083</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

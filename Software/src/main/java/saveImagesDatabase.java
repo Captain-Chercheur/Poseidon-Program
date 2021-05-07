@@ -1,6 +1,7 @@
 import com.jcraft.jsch.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -11,13 +12,14 @@ public class saveImagesDatabase {
     private static final int REMOTE_PORT = 22;
     private static final int SESSION_TIMEOUT = 10000;
     private static final int CHANNEL_TIMEOUT = 5000;
-    private static final List<String>  AllImages=new ArrayList<String>();
+    public static List<String>  AllImages=new ArrayList<String>();
 
     public static List<String> getAllImages(){
+        System.out.println(AllImages);
         return AllImages;
     }
 
-    public static String whenUploadFileUsingJsch_thenSuccess(String imageName) {
+    public static void whenUploadFileUsingJsch_thenSuccess(String imageName) {
 
             String localFile = "img_tmp/" + imageName;
             String remoteFile = imageName;
@@ -25,7 +27,6 @@ public class saveImagesDatabase {
             Session jschSession = null;
 
             int test = AllImages.size() + 1;
-            System.out.println(test);
             AllImages.add(remoteFile);
 
             try {
@@ -69,8 +70,7 @@ public class saveImagesDatabase {
             }
 
             System.out.println("Done");
-            return null;
-        }
+    }
 
 
 

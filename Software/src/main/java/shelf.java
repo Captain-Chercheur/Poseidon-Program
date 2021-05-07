@@ -65,7 +65,12 @@ public class shelf {
 
             String request = HTMLrequests.HTMLrequests("get_shelf_quantity/" + stockPlacement);
             request = request.replaceAll("[\\[\\](){}]", "");
-            int quantity = Integer.parseInt(request);
+            int quantity;
+            if (request == "") {
+                quantity = 0;
+            } else {
+                quantity = Integer.parseInt(request);
+            }
             quantity += Integer.parseInt(quantity_user);
             HTMLrequests.HTMLrequests("change_shelf_quantity/" + stockPlacement + "/" + quantity);
         }

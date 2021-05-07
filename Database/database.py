@@ -101,13 +101,13 @@ def put_metas(designation, state, color, brand, model, year, storage, weight, ba
             c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, reference, descriptionText, quantities, accessoire, descriptionComplementaire, ImageDirectory) 
                     VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{reference}','{descriptionText}','{quantity}','{accessoire}', '{descriptionComplementaire}', '{ImageDirectory}'); ''')
         if not nic:
-            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, nic, descriptionText, quantities, accessoire, descriptionComplementaire) 
+            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, nic, descriptionText, quantities, accessoire, descriptionComplementaire, ImageDirectory) 
                     VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{nic}', '{descriptionText}','{quantity}','{accessoire}', '{descriptionComplementaire}, '{ImageDirectory}''); ''')
         if reference and nic:
-            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, nic, reference,descriptionText, quantities, accessoire, descriptionComplementaire) 
+            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode, nic, reference,descriptionText, quantities, accessoire, descriptionComplementaire, ImageDirectory) 
                     VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', '{nic}', '{reference}', '{descriptionText}','{quantity}','{accessoire}', '{descriptionComplementaire}, '{ImageDirectory}''); ''')
         if not reference and nic:
-            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode,descriptionText, quantities, accessoire, descriptionComplementaire) 
+            c.execute(f'''INSERT INTO Products (designation, state, color, brand, model, year, storage, weight, barcode,descriptionText, quantities, accessoire, descriptionComplementaire, ImageDirectory) 
                     VALUES ('{designation}', '{state}', '{color}', '{brand}', '{model}', '{year}', '{storage}', '{weight}', '{barcode}', {descriptionText},'{quantity}','{accessoire}', '{descriptionComplementaire}', '{ImageDirectory}'); ''')
 
         rows = c.fetchall()
