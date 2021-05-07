@@ -30,10 +30,10 @@ def get_metas():
 
         rows = c.fetchall()
 
-        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting, quantities, accessoire, descriptionComplementaire, quantity,accessoire, descriptionComplementaire, ImageDirectory in rows:
+        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting, quantities, accessoire, descriptionComplementaire, quantity,accessoire, descriptionComplementaire, ImageDirectory, ImagesUrl in rows:
             yield {"Nom": designation, "Référence": reference, "Etat": state, "Description": descriptionText,
                    "Coleur": color, "Poid": weight, "Marque": brand, "Model": model, "Année": year, "NIC": NIC,
-                   "id": id, "storage": storage, "barcode": barcode, "waiting": waiting, "quantities": quantities, "accessoires": accessoire, "descriptionComplementaire": descriptionComplementaire, "quantity:": quantity, "accessoire(s)":accessoire, "descriptionComplementaire":descriptionComplementaire, "ImageDirectory": ImageDirectory}
+                   "id": id, "storage": storage, "barcode": barcode, "waiting": waiting, "quantities": quantities, "accessoires": accessoire, "descriptionComplementaire": descriptionComplementaire, "quantity:": quantity, "accessoire(s)":accessoire, "descriptionComplementaire":descriptionComplementaire, "ImageDirectory": ImageDirectory, "ImagesUrltoremove":ImagesUrl}
 
 
 def get_product(barcode):
