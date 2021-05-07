@@ -400,7 +400,7 @@ public class Main extends Application {
                             System.out.println("Printing image...");
                             String AllImages = "";
                             for (int j = 0; j < saveImagesDatabase.AllImages.size(); j++){
-                                AllImages = saveImagesDatabase.getAllImages().toString().replaceAll(" ", "").replaceAll(",", "-");
+                                AllImages = saveImagesDatabase.getAllImages().toString().replaceAll(" ", "").replaceAll(",", "-").replaceAll(":","_");
 
                             }
                             String metas = "put_metas/" + designationText.getText() + "/" + selected + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
