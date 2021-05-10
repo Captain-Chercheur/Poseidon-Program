@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Database">
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/Pieces$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/Pieces$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/Pieces$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/Pieces$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/Pieces$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/Pieces.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/databaseVisualizer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/course.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/course.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/databaseVisualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/databaseVisualizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/test.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,14 +78,7 @@
       <workItem from="1620314885033" duration="6000" />
       <workItem from="1620314905327" duration="27000" />
       <workItem from="1620370854115" duration="1930000" />
-      <workItem from="1620644419669" duration="134000" />
-    </task>
-    <task id="LOCAL-00006" summary="Trying to install the serveur to wordpress">
-      <created>1619007958224</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1619007958224</updated>
+      <workItem from="1620644419669" duration="568000" />
     </task>
     <task id="LOCAL-00007" summary="Trying to install the serveur to wordpress">
       <created>1619015025407</created>
@@ -412,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620644511525</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Database">
+      <created>1620644556772</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1620644556772</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

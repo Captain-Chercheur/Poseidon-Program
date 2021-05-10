@@ -31,7 +31,7 @@ public class databaseVisualizer {
         JSONObject jsonObject = (JSONObject)obj;
         try {
 
-            String name = (String)jsonObject.get("Nom");
+            String name = (String)jsonObject.get("Products");
             String course = (String)jsonObject.get("Référence");
 
             System.out.println("Name: " + name);

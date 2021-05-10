@@ -1,4 +1,8 @@
 {
+  "name": "Benjamin Watson",
+  "age": 31,
+  "isMarried": true,
+  "hobbies": ["Football", "Swimming"],
   "kids": [
     {
       "name": "Billy",
@@ -9,4 +13,3 @@
       "age": 3
     }
   ]
-}
