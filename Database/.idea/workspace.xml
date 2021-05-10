@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Database">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,14 +68,7 @@
       <workItem from="1620314885033" duration="6000" />
       <workItem from="1620314905327" duration="27000" />
       <workItem from="1620370854115" duration="1930000" />
-      <workItem from="1620644419669" duration="2984000" />
-    </task>
-    <task id="LOCAL-00010" summary="Trying to install the serveur to wordpress">
-      <created>1619018043871</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1619018043871</updated>
+      <workItem from="1620644419669" duration="3482000" />
     </task>
     <task id="LOCAL-00011" summary="Database">
       <created>1619420203258</created>
@@ -412,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620651170245</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Database">
+      <created>1620651233131</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1620651233131</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
