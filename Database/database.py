@@ -36,7 +36,7 @@ def get_metas():
                    "Coleur": color, "Poid": weight, "Marque": brand, "Model": model, "Année": year, "NIC": NIC, "storage": storage, "barcode": barcode,
                    "waiting": waiting, "quantities": quantities, "accessoires": accessoire, "descriptionComplementaire": descriptionComplementaire,
                    "quantity:": quantity, "ImageDirectory": ImageDirectory, "imagesUrltoremove":ImagesUrl}
-            yield {"Items:":"[","var":var}
+        yield {"Items:":"[","var":var}
 
 
 def get_product(barcode):
