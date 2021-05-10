@@ -2,57 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Database">
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-125-azf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-125-azf-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-126-azf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/D-126-azf-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-129-95L" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-129-95L-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-130-95L" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-130-95L-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-131-95L" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-131-95L-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-132-95LO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-132-95LO-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-133-95LO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-133-95LO-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-134-95LO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/barcodes/P-134-95LO-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/captainchercheur.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/course.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/hs_err_pid51945.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_static/captainchercheur_fullsize.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_static/parameter-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-10:04:50.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-10:04:53.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-10:04:56.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-10:04:59.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-10:05:03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/img_tmp/Poulie-10:05:06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/Po-47-95L" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/Po-47-95L-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/Po-48-95L" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/Po-48-95L-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/Po-49-95LO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/shelf_barcodes/Po-49-95LO-combined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/src/main/java/Pieces.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/src/main/java/databaseVisualizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/test.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Software/users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/img_static/plus-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/img_static/plus-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Camera.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,14 +67,7 @@
       <workItem from="1620314885033" duration="6000" />
       <workItem from="1620314905327" duration="27000" />
       <workItem from="1620370854115" duration="1930000" />
-      <workItem from="1620644419669" duration="54000" />
-    </task>
-    <task id="LOCAL-00005" summary="Trying to install the serveur to wordpress">
-      <created>1619007867858</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1619007867858</updated>
+      <workItem from="1620644419669" duration="134000" />
     </task>
     <task id="LOCAL-00006" summary="Trying to install the serveur to wordpress">
       <created>1619007958224</created>
@@ -462,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620374142469</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Database">
+      <created>1620644511524</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1620644511525</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
