@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Database">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,14 +67,7 @@
       <workItem from="1620314885033" duration="6000" />
       <workItem from="1620314905327" duration="27000" />
       <workItem from="1620370854115" duration="1930000" />
-      <workItem from="1620644419669" duration="3546000" />
-    </task>
-    <task id="LOCAL-00012" summary="Database">
-      <created>1619420485191</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1619420485191</updated>
+      <workItem from="1620644419669" duration="3629000" />
     </task>
     <task id="LOCAL-00013" summary="Database">
       <created>1619420738857</created>
@@ -413,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620651731892</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Database">
+      <created>1620651801271</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1620651801271</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
