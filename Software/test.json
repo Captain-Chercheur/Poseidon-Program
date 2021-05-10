@@ -1,1 +1,23 @@
-{"Products":[{"Nom":"Poulie","Référence":"test","Etat":"Neuf","Description":"Rayure","Coleur":"Noir","Poid":"100g","Marque":"Sealine","Model":"f45","Année":"2058","NIC":"test","id":90,"storage":"1A","barcode":"P-90-5J","waiting":null,"quantities":null,"accessoires":null,"descriptionComplementaire":null,"quantity:":null,"ImageDirectory":null,"imagesUrltoremove":null}]}
+{
+  "id": 123,
+  "name": "Pankaj",
+  "permanent": true,
+  "address": {
+    "street": "Albany Dr",
+    "city": "San Jose",
+    "zipcode": 95129
+  },
+  "phoneNumbers": [
+    123456,
+    987654
+  ],
+  "role": "Manager",
+  "cities": [
+    "Los Angeles",
+    "New York"
+  ],
+  "properties": {
+    "age": "29 years",
+    "salary": "1000 USD"
+  }
+}
