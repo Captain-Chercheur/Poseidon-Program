@@ -32,11 +32,11 @@ def get_metas():
 
         for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting, quantities, accessoire,\
             descriptionComplementaire, quantity, ImageDirectory, ImagesUrl in rows:
-            var =  {"id": id, "Nom": designation, "Référence": reference, "Etat": state, "Description": descriptionText,
+            yield {"id": id, "Nom": designation, "Référence": reference, "Etat": state, "Description": descriptionText,
                    "Coleur": color, "Poid": weight, "Marque": brand, "Model": model, "Année": year, "NIC": NIC, "storage": storage, "barcode": barcode,
                    "waiting": waiting, "quantities": quantities, "accessoires": accessoire, "descriptionComplementaire": descriptionComplementaire,
                    "quantity:": quantity, "ImageDirectory": ImageDirectory, "imagesUrltoremove":ImagesUrl}
-        yield {"var":var}
+
 
 
 def get_product(barcode):
