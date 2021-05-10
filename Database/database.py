@@ -31,7 +31,7 @@ def get_metas():
         rows = c.fetchall()
 
         for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting, quantities, accessoire, descriptionComplementaire, quantity, ImageDirectory, ImagesUrl in rows:
-            yield "\"Products\":["+{"Nom": designation, "Référence": reference, "Etat": state, "Description": descriptionText,
+            yield {"Nom": designation, "Référence": reference, "Etat": state, "Description": descriptionText,
                    "Coleur": color, "Poid": weight, "Marque": brand, "Model": model, "Année": year, "NIC": NIC,
                    "id": id, "storage": storage, "barcode": barcode, "waiting": waiting, "quantities": quantities, "accessoires": accessoire, "descriptionComplementaire": descriptionComplementaire, "quantity:": quantity, "ImageDirectory": ImageDirectory, "imagesUrltoremove":ImagesUrl}
 
