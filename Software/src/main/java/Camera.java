@@ -51,7 +51,7 @@ public class Camera {
                     window.dispose();
                     webcam.close();
                     System.out.println("Frame Closed.");
-                    Main.SetImages(imgName[0], Main.cpt);
+                    Pieces.SetImages(imgName[0], Pieces.cpt);
                     b[0] = (JButton) e.getSource();
 
                 } catch (IOException ioException) {
