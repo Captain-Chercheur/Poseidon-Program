@@ -1,56 +1,118 @@
+import java.sql.Connection;
+import java.sql.ResultSet;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Arrays;
+import com.sun.javafx.scene.control.LabeledText;
+import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import javafx.util.Callback;
+import org.w3c.dom.Text;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import javax.swing.*;
 
+/**
+ *
+ * @author Narayan
+ * @Editor SeifAllah
+ */
 
-public class databaseVisualizer {
+public class databaseVisualizer{
 
-    public static void databaseVisualizer() {
-        ObjectMapper objectMapper = new ObjectMapper();
+    private static TableView tableview;
+    private static TableColumn col = new TableColumn();
 
-        try {
-            Page page = objectMapper.readValue(new File("sampleJSONFile.json"), Page.class);
+    //CONNECTION DATABASE
+    public static void buildData(){
+        Connection c ;
+        //TABLE VIEW AND DATA
+        ObservableList<ObservableList> data = FXCollections.observableArrayList();
+        try{
+            c = dbconnect.connect();
+            //SQL FOR SELECTING ALL OF CUSTOMER
+            String SQL = "SELECT * from Products";
+            //ResultSet
+            ResultSet rs = c.createStatement().executeQuery(SQL);
 
-            printParsedObject(page);
-        } catch (IOException e) {
+            /**********************************
+             * TABLE COLUMN ADDED DYNAMICALLY *
+             **********************************/
+            for(int i=0 ; i<rs.getMetaData().getColumnCount(); i++){
+                //We are using non property style for making dynamic table
+                final int j = i;
+                col = new TableColumn(rs.getMetaData().getColumnName(i+1));
+                col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList,String>,ObservableValue<String>>(){
+                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                        return new SimpleStringProperty(param.getValue().get(j).toString());
+                    }
+                });
+
+                tableview.getColumns().addAll(col);
+                System.out.println("Column ["+i+"] ");
+            }
+
+            /********************************
+             * Data added to ObservableList *
+             ********************************/
+            while(rs.next()){
+                //Iterate Row
+                ObservableList<String> row = FXCollections.observableArrayList();
+                for(int i=1 ; i<=rs.getMetaData().getColumnCount(); i++){
+                    //Iterate Column
+                    row.add(rs.getString(i));
+                }
+                System.out.println("Row [1] added "+row );
+                data.add(row);
+
+            }
+
+            //FINALLY ADDED TO TableView
+            tableview.setItems(data);
+        }catch(Exception e){
             e.printStackTrace();
-        }
-
-    }
-
-    private static void printParsedObject(Page page) {
-        printPageInfo(page.getPageInfo());
-        System.out.println();
-        printPosts(page.getPosts());
-    }
-
-    private static void printPageInfo(PageInfo pageInfo) {
-        System.out.println("Page Info;");
-        System.out.println("**********");
-        System.out.println("\tPage Name : " + pageInfo.getPageName());
-        System.out.println("\tPage Pic  : " + pageInfo.getPagePic());
-    }
-
-    private static void printPosts(Post[] posts) {
-        System.out.println("Page Posts;");
-        System.out.println("**********");
-        for(Post post : posts) {
-            printPost(post);
+            System.out.println("Error on Building Data");
         }
     }
 
-    private static void printPost(Post post) {
-        System.out.println("\tPost Id                   : " + post.getPost_id());
-        System.out.println("\tActor Id                  : " + post.getActor_id());
-        System.out.println("\tPic Of Person Who Posted  : " + post.getPicOfPersonWhoPosted());
-        System.out.println("\tName Of Person Who Posted : " + post.getNameOfPersonWhoPosted());
-        System.out.println("\tMessage                   : " + post.getMessage());
-        System.out.println("\tLikes Count               : " + post.getLikesCount());
-        System.out.println("\tComments                  : " + Arrays.toString(post.getComments()));
-        System.out.println("\tTime Of Post              : " + post.getTimeOfPost());
-    }
 
+    public static void test(Stage stage) throws Exception {
+        //TableView
+        tableview = new TableView();
+        buildData();
+        tableview.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                TablePosition pos = (TablePosition) tableview.getSelectionModel().getSelectedCells().get(0);
+                int row = pos.getRow();
+                System.out.println(row);
+// Item here is the table view type:
+                TableColumn col = pos.getTableColumn();
+                String data = (String) col.getCellObservableValue(tableview.getItems().get(row)).getValue();
+                col.setCellValueFactory(col.getCellValueFactory());
+                System.out.println(data);
+
+            }
+        });
+        stage.setWidth(285);
+//        stage.setMaxWidth(285);
+//        stage.setMinWidth(285);
+        stage.setTitle("Java Fx 2.0 DataBase Connection");
+        stage.setResizable(false);
+        //Main Scene
+        Scene scene = new Scene(tableview);
+
+        stage.setScene(scene);
+        stage.show();
+    }
 }

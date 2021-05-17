@@ -1,41 +1,27 @@
-import sqlite3
-from sqlite3 import Error
-from pathlib import Path
-import time
+import os
+import mysql.connector as database
 
-databaseName = "database"
+username = "poseidon"
+password = "Poseidon"
 
+connection = database.connect(
+    user=username,
+    password=password,
+    host="152.228.217.228",
+    database="Poseidon")
 
-def connectBase():
-    ''' return a connector to the database
-    '''
-    try:
-        conn = sqlite3.connect(databaseName)
-        return conn
-    except:
-        return False
-
+cursor = connection.cursor()
 
 # Retourne tous les médicaments disponibles
 def get_metas():
-    ''' return (yield) the forecasts found in the database
-    . if filter is provided, yield only those forecasts from the provided user
-    . sort is provided to sort the selected forecasts
-    '''
-    with connectBase() as coon:
-        c = coon.cursor()
-        c.execute(f'''
-            SELECT * FROM Products;
-        ''')
+    try:
+        statement = "SELECT id FROM Products"
+        cursor.execute(statement)
+        for (id) in cursor:
+            yield{id}
+    except database.Error as e:
+        print(f"Error retrieving entry from database: {e}")
 
-        rows = c.fetchall()
-
-        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting, quantities, accessoire,\
-            descriptionComplementaire, quantity, ImageDirectory, ImagesUrl in rows:
-            yield {"id": id, "Nom": designation, "Référence": reference, "Etat": state, "Description": descriptionText,
-                   "Coleur": color, "Poid": weight, "Marque": brand, "Model": model, "Année": year, "NIC": NIC, "storage": storage, "barcode": barcode,
-                   "waiting": waiting, "quantities": quantities, "accessoires": accessoire, "descriptionComplementaire": descriptionComplementaire,
-                   "quantity:": quantity, "ImageDirectory": ImageDirectory, "imagesUrltoremove":ImagesUrl}
 
 
 

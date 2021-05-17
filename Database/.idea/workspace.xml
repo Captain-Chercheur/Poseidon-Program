@@ -2,8 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Database">
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_static/5615af3f-8e69-41db-bee4-174e8d12e75e.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/src/main/java/ConnectionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/src/main/java/FXLMDocumentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/src/main/java/LoginApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/src/main/resources/FXMLDocument.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/src/main/resources/FXMLMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/ConnectionUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/FXLMDocumentController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/FXMLDocument.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/FXMLMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/LoginApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/databaseVisualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/databaseVisualizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/classes/databaseVisualizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/databaseVisualizer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +58,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -68,14 +91,12 @@
       <workItem from="1620314885033" duration="6000" />
       <workItem from="1620314905327" duration="27000" />
       <workItem from="1620370854115" duration="1930000" />
-      <workItem from="1620644419669" duration="5728000" />
-    </task>
-    <task id="LOCAL-00020" summary="Database">
-      <created>1619427577120</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1619427577120</updated>
+      <workItem from="1620644419669" duration="8072000" />
+      <workItem from="1620716682238" duration="5491000" />
+      <workItem from="1620731668957" duration="599000" />
+      <workItem from="1620802849495" duration="427000" />
+      <workItem from="1620804076498" duration="600000" />
+      <workItem from="1620985626556" duration="31000" />
     </task>
     <task id="LOCAL-00021" summary="Database">
       <created>1619428132485</created>
@@ -413,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620653897777</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Database">
+      <created>1620653968355</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1620653968355</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,5 +466,9 @@
     <MESSAGE value="Trying to install the serveur to wordpress" />
     <MESSAGE value="Database" />
     <option name="LAST_COMMIT_MESSAGE" value="Database" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

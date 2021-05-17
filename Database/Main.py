@@ -13,11 +13,11 @@ tagsMetaData = []  # will contain the tags/desciption for verbs
 #
 # define general tags for the site
 #
-title = 'Medizinischer Roboter'
+title = 'Poseidon'
 
-description = 'API for automatic robot'
+description = 'API for Poseidon Program'
 
-version = '0.5.3'
+version = '1.0'
 
 app = FastAPI(title=title,
               description=description,
@@ -33,6 +33,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.on_event("startup")
+async def startup():
+    print("Connecting...")
 
 @app.get("/")
 async def main():

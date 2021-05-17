@@ -15,7 +15,7 @@ import java.util.Objects;
 
 
 public class Main extends Application {
-    public Main() throws IOException {
+    public Main() throws Exception {
 
     }
 
@@ -38,6 +38,11 @@ public class Main extends Application {
     static Hyperlink ViewStock = new Hyperlink();
 
     public void start(Stage primaryStage) throws Exception {
+        LoginApplication.test();
+
+
+    }
+    public static void mainPage(Stage primaryStage) throws Exception {
 
 
         Image image = new Image("file:img_static/plus-icon.png");
@@ -62,7 +67,7 @@ public class Main extends Application {
         ViewStock.setOnAction(e->{
 
         });
-        databaseVisualizer.databaseVisualizer();
+
         Gridpane.addColumn(0, AddPieces, ViewStock);
 
 
@@ -75,11 +80,8 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("file:img_static/captainchercheur.png"));
 
         primaryStage.setScene(scene);
-        primaryStage.show();
-
-
-
+        //primaryStage.show();
+        databaseVisualizer.test(primaryStage);
     }
-
 
 }
