@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="Database">
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/img_static/5615af3f-8e69-41db-bee4-174e8d12e75e.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/src/main/java/ConnectionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/src/main/java/FXLMDocumentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/src/main/java/LoginApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/src/main/resources/FXMLDocument.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/src/main/resources/FXMLMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/ConnectionUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/FXLMDocumentController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/FXMLDocument.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/FXMLMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Software/target/classes/LoginApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/src/main/java/databaseVisualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/src/main/java/databaseVisualizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/classes/databaseVisualizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/classes/databaseVisualizer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Software/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1rTEVV8D3gfgAj1wlfBBTe2aWnT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8ab10314-5e50-4a41-90d6-7abc53243f5b" name="Default Changelist" comment="" />
+      <created>1618991704313</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618991704313</updated>
+      <workItem from="1618991705967" duration="14688000" />
+      <workItem from="1619016397908" duration="22000" />
+      <workItem from="1619017481828" duration="743000" />
+      <workItem from="1619419922758" duration="1231000" />
+      <workItem from="1619424853493" duration="82000" />
+      <workItem from="1619425144758" duration="538000" />
+      <workItem from="1619425804759" duration="2132000" />
+      <workItem from="1619428012052" duration="286000" />
+      <workItem from="1619428369373" duration="189000" />
+      <workItem from="1619431330758" duration="6138000" />
+      <workItem from="1619507193039" duration="5049000" />
+      <workItem from="1619594514228" duration="1184000" />
+      <workItem from="1619597934160" duration="1808000" />
+      <workItem from="1619683402954" duration="120000" />
+      <workItem from="1619772605005" duration="3230000" />
+      <workItem from="1619790823146" duration="43000" />
+      <workItem from="1620301632723" duration="2055000" />
+      <workItem from="1620311116286" duration="599000" />
+      <workItem from="1620314885033" duration="6000" />
+      <workItem from="1620314905327" duration="27000" />
+      <workItem from="1620370854115" duration="1930000" />
+      <workItem from="1620644419669" duration="8072000" />
+      <workItem from="1620716682238" duration="5491000" />
+      <workItem from="1620731668957" duration="599000" />
+      <workItem from="1620802849495" duration="427000" />
+      <workItem from="1620804076498" duration="600000" />
+      <workItem from="1620985626556" duration="31000" />
+    </task>
+    <task id="LOCAL-00021" summary="Database">
+      <created>1619428132485</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1619428132485</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Database">
+      <created>1619428259719</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1619428259719</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Database">
+      <created>1619431651389</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1619431651389</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Database">
+      <created>1619439017396</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1619439017396</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Database">
+      <created>1619507635496</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1619507635496</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Database">
+      <created>1619507990021</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1619507990021</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Database">
+      <created>1619508070245</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1619508070245</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Database">
+      <created>1619508319758</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1619508319758</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Database">
+      <created>1619510500816</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1619510500816</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Database">
+      <created>1619510572857</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1619510572857</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Database">
+      <created>1619510661040</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1619510661040</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Database">
+      <created>1619595221202</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1619595221202</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Database">
+      <created>1619595326159</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1619595326159</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Database">
+      <created>1619595416764</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1619595416764</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Database">
+      <created>1619605645572</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1619605645572</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Database">
+      <created>1619605688517</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1619605688517</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Database">
+      <created>1619774189234</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1619774189234</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Database">
+      <created>1619774225778</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1619774225778</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Database">
+      <created>1619774239360</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1619774239360</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Database">
+      <created>1619774461274</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1619774461274</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Database">
+      <created>1619774920023</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1619774920023</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Database">
+      <created>1619775019741</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1619775019741</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Database">
+      <created>1619775222423</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1619775222423</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Database">
+      <created>1620307124083</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1620307124083</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Database">
+      <created>1620372978430</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1620372978430</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Database">
+      <created>1620373637499</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1620373637499</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Database">
+      <created>1620373814695</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1620373814695</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Database">
+      <created>1620373850643</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1620373850643</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Database">
+      <created>1620373958652</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1620373958652</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Database">
+      <created>1620374057296</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1620374057297</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Database">
+      <created>1620374097366</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1620374097366</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Database">
+      <created>1620374106812</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1620374106812</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Database">
+      <created>1620374142469</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1620374142469</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Database">
+      <created>1620644511524</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1620644511525</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Database">
+      <created>1620644556772</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1620644556772</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Database">
+      <created>1620644993655</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1620644993655</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Database">
+      <created>1620645110218</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1620645110218</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Database">
+      <created>1620651170245</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1620651170245</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Database">
+      <created>1620651233131</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1620651233131</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Database">
+      <created>1620651731892</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1620651731892</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Database">
+      <created>1620651801271</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1620651801271</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Database">
+      <created>1620651866920</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1620651866920</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Database">
+      <created>1620651946403</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1620651946403</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Database">
+      <created>1620652007737</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1620652007737</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Database">
+      <created>1620652583123</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1620652583123</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Database">
+      <created>1620652659717</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1620652659718</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Database">
+      <created>1620652993081</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1620652993082</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Database">
+      <created>1620653897777</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1620653897777</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Database">
+      <created>1620653968355</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1620653968355</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Database creation and py program to access it via web" />
+    <MESSAGE value="Adding databases files" />
+    <MESSAGE value="Trying to install the serveur to wordpress" />
+    <MESSAGE value="Database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
