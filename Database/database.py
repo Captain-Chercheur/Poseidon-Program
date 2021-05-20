@@ -32,7 +32,7 @@ def get_product(barcode):
     '''
     try:
         statement = f'''
-            SELECT * FROM Products WHERE BARCODE='{barcode}';
+            SELECT id reference state color brand model year NIC storage weight barcode designation descriptionText waiting FROM Products WHERE BARCODE='{barcode}';
         '''
         cursor.execute(statement)
         for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting in cursor:
