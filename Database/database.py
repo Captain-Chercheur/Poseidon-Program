@@ -31,7 +31,9 @@ def get_product(barcode):
     . sort is provided to sort the selected forecasts
     '''
     try:
-        statement = "SELECT * FROM Products WHERE BARCODE="+{barcode}
+        statement = f'''
+            SELECT * FROM Products WHERE BARCODE='{barcode}';
+        '''
         cursor.execute(statement)
         for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting in cursor:
             yield {"id": id, "reference": reference, "state": state, "color": color, "brand": brand, "model": model,
