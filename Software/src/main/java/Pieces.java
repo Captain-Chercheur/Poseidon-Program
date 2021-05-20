@@ -386,9 +386,10 @@ public abstract class Pieces extends Application {
         Button submit = new Button("Submit");
         Button ChangeQuantities = new Button("Change quantities");
         submit.setOnAction(value -> {
+
                     while(designationText.getText() == null || designationText.getText().trim().isEmpty() || colorText.getText() == null || colorText.getText().trim().isEmpty() || shipBrandText.getText() == null || shipBrandText.getText().trim().isEmpty() ||
                             shipModelText.getText() == null || weightText.getText() == null || weightText.getText().trim().isEmpty() ||
-                            stockPlacementText.getText() ==  null || designationText.getText() == null || designationText.getText().trim().isEmpty() || DescriptionStateText.getText() == null || DescriptionStateText.getText().trim().isEmpty() || !picture || !picture1 || !picture2 || !picture3 || !picture4 || !picture5){
+                            stockPlacementText.getText() ==  null || designationText.getText() == null || designationText.getText().trim().isEmpty() || DescriptionStateText.getText() == null || DescriptionStateText.getText().trim().isEmpty()){
                         designationText.setPromptText("Ce champ ne peut pas être vide");
                         colorText.setPromptText("Ce champ ne peut pas être vide");
                         shipBrandText.setPromptText("Ce champ ne peut pas être vide");
@@ -396,12 +397,13 @@ public abstract class Pieces extends Application {
                         weightText.setPromptText("Ce champ ne peut pas être vide");
                         stockPlacementText.setPromptText("Ce champ ne peut pas être vide");
                         DescriptionStateText.setPromptText("Ce champ ne peut pas être vide");
-
+                        System.out.println("400");
                         return;
                     }
                     try {
                         if ((HTMLrequests.HTMLrequests("get_storage/"+stockPlacementText.getText())).equals("[]")){
                             new shelf(new Stage(), stockPlacementText.getText(), designationText.getText(), printerChoosen);
+                            System.out.println("406");
                         }
 
 
@@ -415,7 +417,7 @@ public abstract class Pieces extends Application {
                             String barcodeName = barcode.barcode(designationText.getText().toUpperCase(Locale.ROOT).charAt(0), stockPlacementText.getText());
                             String barcodeFileName = "barcodes/" + barcodeName;
                             System.out.println("Creating barcode...");
-
+                            System.out.println("420");
 
                             imageProcess.imageProcess(designationText.getText(), selected, shipBrandText.getText(), shipModelText.getText(), shipYearText.getText(), colorText.getText(), weightText.getText(), stockPlacementText.getText(), barcodeFileName);
                             System.out.println("Processing image...");
@@ -424,12 +426,12 @@ public abstract class Pieces extends Application {
                             String AllImages = "";
                             for (int j = 0; j < saveImagesDatabase.AllImages.size(); j++){
                                 AllImages = saveImagesDatabase.getAllImages().toString().replaceAll(" ", "").replaceAll(",", "_");
-
+                                System.out.println("429");
                             }
                             String metas = "put_metas/" + designationText.getText() + "/" + selected + "/" + colorText.getText() + "/" + shipBrandText.getText() + "/" + shipModelText.getText() + "/" +
                                     shipYearText.getText() + "/" + stockPlacementText.getText() + "/" + weightText.getText() + "/" + barcodeName + "/" + DescriptionStateText.getText() + "/%20"+"/%20/" + quantityText.getText() + "/" + accessoireText.getText() + "/" + descriptionComplementaireText.getText() + "/\"" + AllImages + "\"";
                             HTMLrequests.HTMLrequests(metas);
-
+                            System.out.println("434");
                             shelf.quantity.waiting_shelving(new Stage(), stockPlacementText.getText(), id_int, 1);
                         }
 
@@ -457,7 +459,7 @@ public abstract class Pieces extends Application {
         descriptionComplementaireText.setPromptText("Poulie simple pour palen");
         accessoireText.setPromptText("Cable Pour écran");
 
-
+        System.out.println("462");
 
 
         PVPHTText.setOnAction(e -> {
@@ -693,10 +695,10 @@ public abstract class Pieces extends Application {
             try {
                 String omg = Camera.Camera(designationText.getText(), webcam);
 
-                if (getAllImages(new File("img_tmp/"), false) == null) {
+                if (getAllImages(new File("img_tmp\\"), false) == null) {
                     System.out.println("no images");
                 } else {
-                    String[] aled = getAllImages(new File("img_tmp/"), false).toArray(new String[0]);
+                    String[] aled = getAllImages(new File("img_tmp\\"), false).toArray(new String[0]);
                     i++;
                     System.out.println(i);
 

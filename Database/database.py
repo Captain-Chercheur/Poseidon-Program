@@ -30,19 +30,15 @@ def get_product(barcode):
     . if filter is provided, yield only those forecasts from the provided user
     . sort is provided to sort the selected forecasts
     '''
-    with connectBase() as coon:
-        c = coon.cursor()
-        c.execute(f'''
-            SELECT * FROM Products WHERE BARCODE='{barcode}';
-
-        ''')
-
-        rows = c.fetchall()
-
-        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting in rows:
+    try:
+        statement = "SELECT * FROM Products WHERE BARCODE="+{barcode}
+        cursor.execute(statement)
+        for id, reference, state, color, brand, model, year, NIC, storage, weight, barcode, designation, descriptionText, waiting in cursor:
             yield {"id": id, "reference": reference, "state": state, "color": color, "brand": brand, "model": model,
                    "year": year, "NIC": NIC, "storage": storage, "weight": weight, "barcode": barcode,
                    "designation": designation, "description": descriptionText, "waiting": waiting}
+    except database.Error as e:
+        print(f"Error retrieving entry from database: {e}")
 
 
 def get_id():

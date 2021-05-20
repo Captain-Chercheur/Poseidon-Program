@@ -1,26 +1,20 @@
-
+import com.thoughtworks.qdox.model.expression.Add;
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.CycleMethod;
-import javafx.scene.paint.LinearGradient;
-import javafx.scene.paint.Stop;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Stack;
 
 
 public class Main extends Application {
@@ -29,6 +23,13 @@ public class Main extends Application {
     }
     static Image crossImage;
 
+    static Tab homeTab;
+    static double size1;
+    static  double size2;
+    static double size3;
+    static double size4;
+
+    static Tab aboutTab;
     static {
         try {
             crossImage = new Image(new FileInputStream("img_static/red-cross.png"));
@@ -68,6 +69,7 @@ public class Main extends Application {
     }
 
     public static void mainPage(Stage primaryStage) throws Exception {
+
         removeImage.setGraphic(crossImageView);
         removeImage1.setGraphic(crossImageView1);
         removeImage.setLayoutX(0);
@@ -79,13 +81,6 @@ public class Main extends Application {
 
         Image image = new Image("file:img_static/plus-icon.png");
         Image image2 = new Image("file:img_static/parameter-icon.png");
-
-        HBox hbox = new HBox();
-        //hbox.setPadding(new Insets(15, 12, 15, 12));
-        //hbox.setSpacing(10);
-        /*hbox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-                + "-fx-border-width: 2;" + "-fx-border-insets: 5;"
-                + "-fx-border-radius: 5;" + "-fx-border-color: blue;");*/
 
         //Creating the image view
         ImageView imageView1 = new ImageView(image);
@@ -108,16 +103,12 @@ public class Main extends Application {
                 + "-fx-border-width: 1;" + "-fx-border-color: black;" + "-fx-background-color: lightgrey");
         addModifyValues2.getColumnConstraints().add(column);
         addModifyValues.getColumnConstraints().add(column2);
-        addModifyValues2.setVisible(false);
-        addModifyValues.setVisible(false);
-        removeImage.setVisible(false);
-        removeImage1.setVisible(false);
+
 
         AddPieces.setGraphic(imageView1);
         AddPieces.setText("Ajouter une pièce   ");
         AddPieces.setStyle("-fx-background-color: #23a0da;-fx-text-fill: white");
-        hbox.getChildren().addAll(databaseVisualizer.test(addModifyValues), removeImage);
-        hbox.getChildren().addAll(Pieces.aled(addModifyValues2), removeImage1);
+
 
 
 
@@ -143,47 +134,97 @@ public class Main extends Application {
             addModifyValues2.setVisible(false);
             removeImage1.setVisible(false);
         });
-        AddPieces.setOnAction(e->{
-            if (visibility1 && visibility2) {
-                try {
-                    addModifyValues2.setVisible(true);
-                    HBox.setHgrow(addModifyValues2, Priority.ALWAYS);
-                    addModifyValues.setVisible(true);
-                    removeImage1.setVisible(true);
-                    removeImage.setVisible(true);
 
-
-                } catch (Exception exception) {
-                    exception.printStackTrace();
-                }
-            } else if (visibility1){
-                addModifyValues2.setVisible(true);
-                removeImage1.setVisible(true);
-            } else if (visibility2){
-                addModifyValues.setVisible(true);
-                removeImage.setVisible(true);
-            }
-        });
         Gridpane.addRow(1, AddPieces);
         Gridpane.addRow(2,  ViewStock);
-        Gridpane.addRow(3, hbox);
+        //Gridpane.addRow(3, hbox);
 
         primaryStage.setMaximized(true);
         primaryStage.setMinWidth(1280);
         primaryStage.setMinHeight(720);
 
         primaryStage.getIcons().add(new Image("file:img_static/captainchercheur.png"));
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+// Create the necessary panes.
+        DraggableTab tab1 = new DraggableTab("Stock");
+        tab1.setClosable(true);
+        GridPane test = databaseVisualizer.test(addModifyValues);
+        tab1.setContent(test);
+
+        System.out.println();
+        DraggableTab tab2 = new DraggableTab("Ajouter une pièce");
+        tab2.setClosable(true);
+        tab2.setContent(Pieces.aled(addModifyValues2));
+
+        /*TabPane tabs = new TabPane();
+        TabPane tabs2 = new TabPane();
+        tabs.getTabs().add(tab1);
+        tabs2.getTabs().add(tab2);
+
+
+        StackPane root = new StackPane();
+        root.getChildren().addAll(tabs);
+        StackPane root2 = new StackPane();
+        root2.getChildren().addAll(tabs2);
+*/
         TabPane tabPane = new TabPane();
+        TabPane tabPane1 = new TabPane();
+        tabPane.getSelectionModel().select(tab1);
+        tabPane1.getSelectionModel().select(tab2);
+        HBox hbox = new HBox();
+        hbox.getChildren().addAll(tabPane1, tabPane);
 
-        Tab tab1 = new Tab("Ajouter une pièce", Gridpane);
-        Tab tab2 = new Tab("Visualiser les stocks"  , new Label("Show all cars available"));
 
-        tabPane.getTabs().add(tab1);
-        tabPane.getTabs().add(tab2);
 
-        VBox vBox = new VBox(tabPane);
+        tab1.setOnCloseRequest(new EventHandler<Event>() {
+            @Override
+            public void handle(Event arg0) {
 
-        Scene scene = new Scene(vBox);
+                if( tabPane.getTabs().contains( tab1 ) ) {
+                    tabPane.getTabs().remove( tab1 );
+                    tabPane1.setMinSize(primaryScreenBounds.getWidth(), primaryScreenBounds.getHeight());
+
+
+                }
+
+                arg0.consume();
+            }
+        });
+        tab2.setOnCloseRequest(new EventHandler<Event>() {
+            @Override
+            public void handle(Event arg0) {
+
+                if( tabPane1.getTabs().contains( tab2 ) ) {
+                    tabPane1.getTabs().remove( tab2 );
+                    tabPane.setMinSize(primaryScreenBounds.getWidth()-100, primaryScreenBounds.getHeight()-300);
+                }
+
+                arg0.consume();
+            }
+        });
+
+        AddPieces.setOnAction(actionEvent -> {
+            if( !tabPane1.getTabs().contains( tab2 ) ) {
+
+                tabPane1.getTabs().add( tab2 );
+                tabPane.setMinSize(500, 500);
+            }
+            tabPane1.getSelectionModel().select(tab2);
+        });
+
+        ViewStock.setOnAction(actionEvent -> {
+            if( !tabPane.getTabs().contains( tab1 ) ) {
+                tabPane.getTabs().add( tab1 );
+                tabPane1.setMinSize(500, 500);
+            }
+            tabPane.getSelectionModel().select(tab1);
+        });
+
+
+        VBox vbox = new VBox();
+        vbox.getChildren().addAll(Gridpane, AddPieces, ViewStock, hbox);
+
+        Scene scene = new Scene(vbox);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

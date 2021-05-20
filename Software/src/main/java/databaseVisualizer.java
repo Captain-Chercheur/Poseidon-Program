@@ -15,10 +15,13 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import javax.swing.plaf.TableHeaderUI;
+
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class databaseVisualizer{
 
@@ -130,7 +133,6 @@ public class databaseVisualizer{
                         TablePosition pos = (TablePosition) tableview.getSelectionModel().getSelectedCells().get(0);
                         String textValue = textField.getText();
 
-                        //System.out.println(pos.getColumn());
                         try {
                             ColumnName = rs.getMetaData().getColumnName(pos.getColumn()+1);
                             System.out.println(textValue);
@@ -159,6 +161,7 @@ public class databaseVisualizer{
         databaseGridpane.addRow(1,tableview);
         databaseGridpane.addRow(3, textField);
         databaseGridpane.add(send, 0, 5);
+
         return databaseGridpane;
     }
     public static void modifyData(String value, String column, String id) throws SQLException, InstantiationException, IllegalAccessException {
@@ -172,6 +175,17 @@ public class databaseVisualizer{
         tableview.getItems().clear();
 
         buildData();
+
+    }
+    public static void getImages(String id) throws SQLException {
+        Connection c;
+        c = dbconnect.connect();
+        //SQL FOR SELECTING ALL OF PRODUCTS
+        String SQL = "SELECT ImageDirectory FROM Products" + " id = " + id;
+        //ResultSet
+        c.createStatement().executeUpdate(SQL);
+        tableview.refresh();
+        tableview.getItems().clear();
 
     }
 }

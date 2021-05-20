@@ -20,7 +20,7 @@ public class HTMLrequests {
          * du web services ainsi que la requete pour former la requete uri.
          */
         args = args.replaceAll(" ", "&nbsp;");
-        String url = "http://176.31.163.242:8000/"+args;
+        String url = "http://152.228.217.228:8000/"+args;
         int responseCode = 0;
         String responseString = null;
         String line = null;
